@@ -50,7 +50,7 @@ import { useUI } from '../composables/useUI'
 import { useFormGroup } from '../composables/useFormGroup'
 import { mergeConfig, get } from '../utils'
 import type { Strategy } from '../types'
-import appConfig from '../../app.config'
+import appConfig from '../app.config'
 import { radioGroup, radio} from '../ui.config'
 import colors from 'tailwindcss/colors'
 
@@ -97,7 +97,7 @@ export default defineComponent({
       type: String as PropType<typeof colors[number]>,
       default: () => config.default.color,
       validator (value: string) {
-        return true //appConfig.ui.colors.includes(value);
+        return Object.keys(appConfig.ui.colors).includes(value)
       }
     },
     class: {
@@ -191,4 +191,4 @@ export default defineComponent({
 })
 
 </script>
-../../composables/useUI../../composables/useFormGroup../../utils../../types../../app.config~/src/runtime/composables/useUI~/src/runtime/composables/useFormGroup~/src/runtime/types~/src/runtime/utils../../../../src/runtime/composables/useUI../../../../src/runtime/composables/useFormGroup../../../../src/runtime/utils../../../../src/runtime/types
+../../composables/useUI../../composables/useFormGroup../../utils../../types../../app.config~/src/runtime/composables/useUI~/src/runtime/composables/useFormGroup~/src/runtime/types~/src/runtime/utils../../../../src/runtime/composables/useUI../../../../src/runtime/composables/useFormGroup../../../../src/runtime/utils../../../../src/runtime/types../app.config

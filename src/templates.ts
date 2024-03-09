@@ -1,4 +1,4 @@
-import { useNuxt, addTemplate } from '@nuxt/kit'
+import { useNuxt } from '@nuxt/kit'
 
 export default function createTemplates (nuxt = useNuxt()) {
   /*const template = addTemplate({

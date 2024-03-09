@@ -1,11 +1,10 @@
 import { createRequire } from 'node:module'
-import { defineNuxtModule, addPlugin, createResolver, addImportsDir, addComponentsDir,installModule } from '@nuxt/kit'
-import { defaultExtractor as createDefaultExtractor } from 'tailwindcss/lib/lib/defaultExtractor.js'
-import { generateSafelist, excludeColors, customSafelistExtractor } from './colors'
+import { defineNuxtModule, addPlugin, createResolver, addImportsDir, addComponent,installModule } from '@nuxt/kit'
+//import { defaultExtractor as createDefaultExtractor } from 'tailwindcss/lib/lib/defaultExtractor.js'
+//import { excludeColors } from './colors'
 import createTemplates from '../src/templates'
 
-
-const defaultExtractor = createDefaultExtractor({ tailwindConfig: { separator: ':' } })
+//const defaultExtractor = createDefaultExtractor({ tailwindConfig: { separator: ':' } })
 const _require = createRequire(import.meta.url)
 const defaultColors = _require('tailwindcss/colors.js')
 
@@ -36,7 +35,7 @@ export interface ModuleOptions {
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-ui-radio-gp-card',
-    configKey: 'radioGroupCard'
+    //configKey: 'radioGroupCard'
   },
   // Default configuration options of the Nuxt module
   defaults: {
@@ -93,7 +92,7 @@ export default defineNuxtModule<ModuleOptions>({
         900: 'rgb(var(--color-gray-900) / <alpha-value>)',
       }
     
-      const colors = excludeColors(globalColors)
+      //const colors = excludeColors(globalColors)
     
           // @ts-ignore
       nuxt.options.appConfig.ui = {
@@ -137,12 +136,12 @@ export default defineNuxtModule<ModuleOptions>({
             resolve(runtimeDir, 'components/**/*.{vue,mjs,ts}'),
             resolve(runtimeDir, 'ui.config/**/*.{mjs,js,ts}')
           ],
-          transform: {
+          /*transform: {
             vue: (content) => {
               return content.replaceAll(/(?:\r\n|\r|\n)/g, ' ')
             }
           },
-          extract: {
+          /*extract: {
             vue: (content) => {
               return [
                 ...defaultExtractor(content),
@@ -150,16 +149,22 @@ export default defineNuxtModule<ModuleOptions>({
                 //...customSafelistExtractor(options.prefix, content, nuxt.options.appConfig.ui.colors, options.safelistColors)
               ]
             }
-          }
+          }*/
         }
       }
     })
 
      // Components
-     addComponentsDir({
-      path: resolve(runtimeDir, 'components'),
+     addComponent({
+      name:'RadioGroupCard',
+      filePath: resolve(runtimeDir, 'components','RadioGroupCard.vue'),
       global: true,
-      watch: false
+    })
+
+    addComponent({
+      name:'RadioCard',
+      filePath: resolve(runtimeDir, 'components','RadioCard.vue'),
+      global: true,
     })
 
      // Composables

@@ -8,24 +8,24 @@
     :model-value="selected"
     legend="helle wordl"
     color="violet"
-    :uiRadio="{background:{unchecked:'bg-white'},
-        }"
+    :ui-radio="{background:{unchecked:'bg-white'},
+    }"
   />
   <radioGroupCard
-        :options="options2"
-        :modelValue="selected"
-        size="sm"
-        v-model="selected"
-        legend="hello twice"
-        color="red"
-        bordOnly
-   >
-   <template #checkIcon="{ option }">
-    <p class="italic">
-      <Icon :name="option.icon" />
-      {{ option.label }}
-    </p>
-  </template>
+    v-model="selected"
+    :options="options2"
+    :model-value="selected"
+    size="sm"
+    legend="hello twice"
+    color="red"
+    bord-only
+  >
+    <template #checkIcon="{ option }">
+      <p class="italic">
+        <Icon :name="option.icon" />
+        {{ option.label }}
+      </p>
+    </template>
   </radioGroupCard>
   <radioGroupCard
     v-model="selected"
@@ -36,17 +36,17 @@
     color="sky"
   />
   <radioGroupCard
-    :options="options2"
-    :modelValue="selected"
-    size="md"
     v-model="selected"
+    :options="options2"
+    :model-value="selected"
+    size="md"
     legend="hello 4th time"
     color="primary"
-    bordOnly
+    bord-only
   >
     <template #label="{ option }">
-        <p>hellorrrrrrrrr</p>
-        {{ option.label }}
+      <p>hellorrrrrrrrr</p>
+      {{ option.label }}
     </template>
   </radioGroupCard>
 </template>

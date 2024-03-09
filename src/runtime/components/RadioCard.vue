@@ -98,7 +98,7 @@
     import { mergeConfig } from '../utils'
     import { useUI } from '../composables/useUI'
     import type { Strategy } from '../types'
-    import appConfig from '../../app.config'
+    import appConfig from '../app.config'
     import { v4 as uuidv4 } from 'uuid'
     import { radio } from '../ui.config'
     import colors from 'tailwindcss/colors'
@@ -160,7 +160,7 @@
             },
             option:{
                 type:Object,
-                default:() => ''
+                default:() => {}
             },
             size:{
                 type: String,
@@ -172,9 +172,6 @@
             bordOnly:{
                 type: Boolean,
                 default: false
-                //validator (value: string) {
-                  //  return appConfig.ui.colors.includes(value)
-                //}
             }
         },
 
@@ -182,8 +179,6 @@
 
         setup (props, { emit }) {
             const { ui, attrs } = useUI('radio', toRef(props, 'ui'), config, toRef(props, 'class'))
-            const id = uuidv4();
-            const inputId = props.id ?? id
     
             const radioGroup = inject('radio-group', null)
             const { emitFormChange, color, name } = radioGroup ?? useFormGroup(props, config)
@@ -288,7 +283,6 @@
             })
 
             return {
-                inputId,
                 // eslint-disable-next-line vue/no-dupe-keys
                 checked,
                 ui,
@@ -314,4 +308,4 @@
       }
      
       
-    </style>../../utils../../types../../app.config../../ui.config~/src/runtime/types~/src/runtime/utils../../../../src/runtime/utils../../../../src/runtime/types
+    </style>../../utils../../types../../app.config../../ui.config~/src/runtime/types~/src/runtime/utils../../../../src/runtime/utils../../../../src/runtime/types../app.config
