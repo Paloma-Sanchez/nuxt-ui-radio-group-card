@@ -96,7 +96,6 @@
     import appConfig from '../app.config'
     import { radio } from '../ui.config'
     import colors from 'tailwindcss/colors'
-    import { approuvedColors } from '../../colors'
 
     const config = mergeConfig<typeof radio>("merge", appConfig.ui.radioCard, radio)
     
@@ -138,9 +137,7 @@
             color: {
                 type: String as PropType<typeof colors[number]>,
                 default: () => config.default.color,
-                validator (value: string) {
-                    return approuvedColors.includes(value)
-                }
+                
             },
             inputClass: {
                 type: String,
@@ -193,7 +190,7 @@
             const checked = computed(() => props.modelValue === props.value )
 
             const descriptionClass= computed(() => {
-                const mergedClass = (checked.value && props.variant!=='outline')? 
+                const mergedClass = (checked.value && props.variant==='solid')? 
                 twJoin(
                     ui.value.description.unchecked,
                     ui.value.description.checked

@@ -24,7 +24,9 @@ export default {
   help: 'text-sm text-gray-500 dark:text-gray-400',
   variant:{
     solid:'rounded-md cursor-pointer peer-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-checked:ring-2 peer-checked:ring-{color}-500 peer-checked:ring-offset-2 peer-checked:ring-offset-white text-gray-700 peer-checked:text-white bg-{color}-50 peer-checked:bg-{color}-500',
-    outline:'rounded-md cursor-pointer peer-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-checked:ring-4 peer-checked:ring-{color}-500 text-gray-700 peer-checked:text-{color}-500 bg-{color}-50'
+    outline:'rounded-md cursor-pointer peer-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-checked:ring-4 peer-checked:ring-{color}-500 text-gray-700 peer-checked:text-{color}-500 bg-{color}-50',
+    ghost:'rounded-md cursor-pointer peer-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-checked:ring-4 peer-checked:ring-{color}-500 text-gray-700 peer-checked:text-{color}-500 bg-white hover:bg-{color}-50 peer-checked:bg-{color}-100 peer-disabled:bg-gray-200 peer-disabled:text-gray-700 hover:text-{color}-400 border border-gray-100',
+    black:'rounded-md cursor-pointer peer-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-checked:ring-4 peer-checked:ring-{color}-500 text-gray-700 peer-checked:text-{color}-500 bg-white border border border-gray-300'
   },
   default: {
     color: 'primary',

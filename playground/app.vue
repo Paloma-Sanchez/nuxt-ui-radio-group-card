@@ -11,7 +11,9 @@
       :model-value="selected"
       legend="helle wordl"
       color="violet"
-      :ui-radio="{variant:{solid:'bg-white'}}"
+      required
+      variant="ghost"
+      help="Please choose one" 
     />
     <radioGroupCard
       v-model="selected"
@@ -74,13 +76,8 @@
     size="sm"
     legend="hello 4th time"
     color="primary"
-    bord-only
-  >
-    <template #label="{ option }">
-      <p>hellorrrrrrrrr</p>
-      {{ option.label }}
-    </template>
-  </radioGroupCard>
+    variant="black"
+  />
 </template>
 
 <script setup>

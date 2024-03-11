@@ -8,7 +8,19 @@
         <slot name="legend">
           {{ legend }}
         </slot>
+        <span 
+          v-if="required" 
+          :class="ui.required"
+        >
+          *
+        </span>
       </legend>
+      <p
+        v-if="help" 
+        :class="ui.help"
+      >
+        {{ help }}
+      </p>
       <div :class="containerClass">
         <radioCard
           v-for="option in normalizedOptions"
@@ -53,7 +65,25 @@ import type { Strategy } from '../types'
 import appConfig from '../app.config'
 import { radioGroup, radio} from '../ui.config'
 import colors from 'tailwindcss/colors'
-import { approuvedColors } from '../../colors'
+import { omit } from '../../runtime/utils/lodash'
+//import { colorsToExclude } from '../../colors'
+export const colorsToExclude = [
+  'inherit',
+  'transparent',
+  'current',
+  'white',
+  'black',
+  'slate',
+  //'gray',
+  'zinc',
+  'neutral',
+  'stone',
+  'cool'
+]
+
+const approuvedColors = Object.keys(omit(colors, colorsToExclude))
+approuvedColors.push("primary")
+approuvedColors.push("gray")
 
 const config = mergeConfig<typeof radioGroup>("merge", appConfig.ui.radioGroup, radioGroup)
 const configRadio = mergeConfig<typeof radio>("merge", appConfig.ui.radioCard, radio)
@@ -69,6 +99,10 @@ export default defineComponent({
     modelValue: {
       type: [String, Number, Object],
       default: ''
+    },
+    help: {
+      type: String,
+      default: null
     },
     name: {
       type: String,
@@ -94,6 +128,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    required: {
+                type: Boolean,
+                default: false
+            },
     color: {
       type: String as PropType<typeof colors[number]>,
       default: () => config.default.color,
@@ -203,4 +241,3 @@ export default defineComponent({
 })
 
 </script>
-../../composables/useUI../../composables/useFormGroup../../utils../../types../../app.config~/src/runtime/composables/useUI~/src/runtime/composables/useFormGroup~/src/runtime/types~/src/runtime/utils../../../../src/runtime/composables/useUI../../../../src/runtime/composables/useFormGroup../../../../src/runtime/utils../../../../src/runtime/types../app.config

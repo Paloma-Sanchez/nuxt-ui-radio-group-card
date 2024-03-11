@@ -105,7 +105,7 @@ export default defineNuxtModule<ModuleOptions>({
       tailwindConfig.safelist = tailwindConfig.safelist || []
       tailwindConfig.safelist.push({
         pattern: /bg-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(50|400|500)/,
-        variants: ['peer-checked']
+        variants: ['peer-checked', 'peer-disabled', 'hover']
       })
       tailwindConfig.safelist.push({
         pattern: /ring-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(|400|500)/,
@@ -117,7 +117,7 @@ export default defineNuxtModule<ModuleOptions>({
       })
       tailwindConfig.safelist.push({
         pattern: /text-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(100|200|400|500|600|800|900)/,
-        variants: ['peer-checked']
+        variants: ['peer-checked', 'peer-disabled', 'hover']
       })
     })
 
