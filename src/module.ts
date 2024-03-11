@@ -1,7 +1,7 @@
 import { createRequire } from 'node:module'
 import { defineNuxtModule, addPlugin, createResolver, addImportsDir, addComponent,installModule } from '@nuxt/kit'
 //import { defaultExtractor as createDefaultExtractor } from 'tailwindcss/lib/lib/defaultExtractor.js'
-//import { excludeColors } from './colors'
+import { excludeColors } from './colors'
 import createTemplates from '../src/templates'
 
 //const defaultExtractor = createDefaultExtractor({ tailwindConfig: { separator: ':' } })
@@ -92,20 +92,33 @@ export default defineNuxtModule<ModuleOptions>({
         900: 'rgb(var(--color-gray-900) / <alpha-value>)',
       }
     
-      //const colors = excludeColors(globalColors)
+      const colors = excludeColors(globalColors)
     
           // @ts-ignore
       nuxt.options.appConfig.ui = {
         primary: 'green',
         gray: 'slate',
-        //colors,
+        colors,
         strategy: 'merge'
       }
-    
+
       tailwindConfig.safelist = tailwindConfig.safelist || []
-      tailwindConfig.safelist.push({pattern: /bg-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(50|400|500)/})
-      tailwindConfig.safelist.push({pattern: /ring-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(|400|500)/})
-      tailwindConfig.safelist.push({pattern: /text-(gray)-(100|200|400|500|600|700|800|900)/})
+      tailwindConfig.safelist.push({
+        pattern: /bg-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(50|400|500)/,
+        variants: ['peer-checked']
+      })
+      tailwindConfig.safelist.push({
+        pattern: /ring-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(|400|500)/,
+        variants: ['peer-checked']
+      })
+      tailwindConfig.safelist.push({
+        pattern: /text-(gray)-(100|200|400|500|600|700|800|900)/,
+        variants: ['peer-checked']
+      })
+      tailwindConfig.safelist.push({
+        pattern: /text-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(100|200|400|500|600|800|900)/,
+        variants: ['peer-checked']
+      })
     })
 
     // Plugins

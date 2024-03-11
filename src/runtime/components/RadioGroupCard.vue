@@ -1,6 +1,6 @@
 <template>
   <div :class="wrapperClass">
-    <div class="mx-auto w-full max-w-md">
+    <div class="mx-auto w-max max-w-md">
       <legend 
         v-if="legend || $slots.legend" 
         :class="ui.legend"
@@ -22,7 +22,7 @@
           :ui="uiRadio"
           :color="color"
           :size="size"
-          :bord-only="bordOnly"
+          :variant="variant"
           @change="onUpdate(option.value)"
         >
           <template #label>
@@ -33,7 +33,7 @@
           </template>
           <template #checkIcon>
             <slot 
-              name="checkIcon" 
+              name="trailing" 
               v-bind="{ option }"
             />
           </template>
@@ -53,6 +53,7 @@ import type { Strategy } from '../types'
 import appConfig from '../app.config'
 import { radioGroup, radio} from '../ui.config'
 import colors from 'tailwindcss/colors'
+import { approuvedColors } from '../../colors'
 
 const config = mergeConfig<typeof radioGroup>("merge", appConfig.ui.radioGroup, radioGroup)
 const configRadio = mergeConfig<typeof radio>("merge", appConfig.ui.radioCard, radio)
@@ -97,7 +98,7 @@ export default defineComponent({
       type: String as PropType<typeof colors[number]>,
       default: () => config.default.color,
       validator (value: string) {
-        return Object.keys(appConfig.ui.colors).includes(value)
+        return approuvedColors.includes(value)
       }
     },
     class: {
@@ -114,17 +115,27 @@ export default defineComponent({
     },
     size:{
       type:String,
-      default:'md'
+      default:config.default.size,
+      validator (value: string) {
+        return Object.keys(configRadio.size).includes(value)
+      }
     },
-    bordOnly:{
-      type:Boolean,
-      default:false
-    }
+    variant: {
+      type: String as PropType<SelectVariant>,
+      default: () => config.default.variant,
+      validator (value: string) {
+        return [
+          ...Object.keys(configRadio.variant)
+          //...Object.values(configRadio.color).flatMap(value => Object.keys(value))
+        ].includes(value)
+      }
+    },
   },
   emits: ['update:modelValue', 'change'],
     setup (props, { emit }) {
         const { ui, attrs } = useUI('radioGroup', toRef(props, 'ui'), config, toRef(props, 'class'))
         const { ui: uiRadio } = useUI('radio', toRef(props, 'uiRadio'), configRadio)
+        
 
         const { emitFormChange, color, name } = useFormGroup(props, config)
         provide('radio-group', { color, name })
@@ -185,7 +196,8 @@ export default defineComponent({
         // eslint-disable-next-line vue/no-dupe-keys
         onUpdate,
         containerClass,
-        wrapperClass
+        wrapperClass,
+        colors
         }
     }
 })

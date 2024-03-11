@@ -12,6 +12,7 @@ export default {
   legend: 'text-sm font-medium text-gray-700  mb-1',
   default: {
     color: 'primary',
-    size: 'md'
-  }
+    size: 'md',
+    variant:'solid'
+  },
 }

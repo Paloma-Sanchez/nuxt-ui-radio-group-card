@@ -2,14 +2,37 @@
   <div>
     Nuxt module playground!
   </div>
+  <div
+    class="flex"
+  >
+    <radioGroupCard
+      v-model="selected"
+      :options="options"
+      :model-value="selected"
+      legend="helle wordl"
+      color="violet"
+      :ui-radio="{variant:{solid:'bg-white'}}"
+    />
+    <radioGroupCard
+      v-model="selected"
+      :options="options"
+      :model-value="selected"
+      legend="helle wordl"
+      variant="outline"
+      color="violet"
+      :ui-radio="{background:{unchecked:'bg-white'},
+      }"
+    />
+  </div> 
+ 
   <radioGroupCard
     v-model="selected"
-    :options="options"
+    :options="options2"
     :model-value="selected"
-    legend="helle wordl"
-    color="violet"
-    :ui-radio="{background:{unchecked:'bg-white'},
-    }"
+    size="sm"
+    legend="hello twice"
+    color="red"
+    bord-only
   />
   <radioGroupCard
     v-model="selected"
@@ -19,10 +42,10 @@
     legend="hello twice"
     color="red"
     bord-only
+    variant="outline"
   >
     <template #checkIcon="{ option }">
       <p class="italic">
-        <Icon :name="option.icon" />
         {{ option.label }}
       </p>
     </template>
@@ -37,9 +60,18 @@
   />
   <radioGroupCard
     v-model="selected"
+    :options="options3"
+    :model-value="selected"
+    size="xs"
+    legend="hello 3x"
+    color="sky"
+    variant="outline"
+  />
+  <radioGroupCard
+    v-model="selected"
     :options="options2"
     :model-value="selected"
-    size="md"
+    size="sm"
     legend="hello 4th time"
     color="primary"
     bord-only
@@ -63,19 +95,17 @@ const options = [
     value: 'Business',
     label: 'Business',
     description:['16GB', '8 CPUs', '512 GB SSD disk'],
-    icon:''
   },
   {
     value: 'Enterprise',
     label: 'Enterprise',
     description:['32GB', '12 CPUs', '1024 GB SSD disk'],
-    icon:''
   },
   {
     value: 'Education',
     label: 'Education',
     //description:['6GB', '3CPUs', '80 GB SSD disk'],
-    icon:''
+    disabled: true
   },
 ];
 
@@ -116,6 +146,8 @@ const options3 = [
   },
 ]
 const selected = ref(options[0].value);
+
+/*  */
 </script>
 
 

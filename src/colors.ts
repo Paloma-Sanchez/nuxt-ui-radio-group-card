@@ -1,5 +1,6 @@
 import { omit } from './runtime/utils/lodash'
 import { kebabCase, camelCase, upperFirst } from 'scule'
+import colors from 'tailwindcss/colors'
 
 const colorsToExclude = [
   'inherit',
@@ -8,12 +9,16 @@ const colorsToExclude = [
   'white',
   'black',
   'slate',
-  'gray',
+  //'gray',
   'zinc',
   'neutral',
   'stone',
   'cool'
 ]
+
+export const approuvedColors = Object.keys(omit(colors, colorsToExclude))
+approuvedColors.push("primary")
+approuvedColors.push("gray")
 
 const safelistByComponent = {
   alert: (colorsAsRegex) => [{

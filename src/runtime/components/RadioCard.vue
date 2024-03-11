@@ -5,6 +5,7 @@
     <input
       :id="option.value"
       v-model="pick"
+      class="peer"
       :disabled="disabled"
       :name="name"
       :required="required"
@@ -14,13 +15,7 @@
       v-bind="attrs"
     >
     <label
-      :class="[
-        labelClass, 
-        {
-          'cursor-not-allowed':disabled,
-          'opacity-50':disabled,
-        }
-      ]"
+      :class="labelClass"
       :for="option.value"
     >
       <slot
@@ -32,13 +27,13 @@
           <Icon 
             v-if="option.icon"
             :class="iconClass"
-            :name="option.icon"
+            :name="option.icon? option.icon:''"
           />
           <div
-            :class="labelCenterClass"
+            :class="labelMainClass"
           >
             <div
-              :class="ui.innerlabel"
+              :class="ui.label"
             >
               {{ label }}
             </div>
@@ -69,7 +64,7 @@
         <div
           v-if="size!=='xs'"
         >
-          <slot name="checkIcon">
+          <slot name="trailing">
             <Icon
               v-if="!checked"
               :class="iconClass"
@@ -99,9 +94,10 @@
     import { useUI } from '../composables/useUI'
     import type { Strategy } from '../types'
     import appConfig from '../app.config'
-    import { v4 as uuidv4 } from 'uuid'
     import { radio } from '../ui.config'
     import colors from 'tailwindcss/colors'
+    import { approuvedColors } from '../../colors'
+
     const config = mergeConfig<typeof radio>("merge", appConfig.ui.radioCard, radio)
     
     export default defineComponent({
@@ -143,7 +139,7 @@
                 type: String as PropType<typeof colors[number]>,
                 default: () => config.default.color,
                 validator (value: string) {
-                    return true //appConfig.ui.colors.includes(value)
+                    return approuvedColors.includes(value)
                 }
             },
             inputClass: {
@@ -165,13 +161,10 @@
             size:{
                 type: String,
                 default: () => config.default.size
-                //validator (value: string) {
-                  //  return appConfig.ui.colors.includes(value)
-                //}
             },
-            bordOnly:{
-                type: Boolean,
-                default: false
+            variant:{
+                type: String,
+                default: () => config.default.variant
             }
         },
 
@@ -179,7 +172,7 @@
 
         setup (props, { emit }) {
             const { ui, attrs } = useUI('radio', toRef(props, 'ui'), config, toRef(props, 'class'))
-    
+            //if(props.size==='md')console.log('ui md', ui.value)
             const radioGroup = inject('radio-group', null)
             const { emitFormChange, color, name } = radioGroup ?? useFormGroup(props, config)
     
@@ -198,10 +191,10 @@
             })
     
             const checked = computed(() => props.modelValue === props.value )
-            //const size = computed(() => props.size )
 
             const descriptionClass= computed(() => {
-                const mergedClass = (checked.value && !props.bordOnly)? twJoin(
+                const mergedClass = (checked.value && props.variant!=='outline')? 
+                twJoin(
                     ui.value.description.unchecked,
                     ui.value.description.checked
                 ):ui.value.description.unchecked
@@ -212,7 +205,7 @@
             const iconClass = computed(() => {
                 let textColor = ''
                 if(checked.value){
-                    if(props.bordOnly){
+                    if(props.variant==='outline'){
                         textColor = `text-${props.color}-500`
                     }
                 }else{
@@ -230,62 +223,34 @@
                 props.size==='xs'?justify='justify-center':''
 
                 return twMerge(twJoin(
-                    ui.value.innerr,
+                    ui.value.container,
                     justify
                 ))
             })
 
             const labelClass = computed(() => {
-                console.log('label', props.size)
-                console.log('ui', ui.value.label[props.size])
-                return     ui.value.label[props.size]
+                return twMerge(twJoin(ui.value.size[props.size], 
+                ui.value.variant[props.variant].replaceAll('{color}', props.color)),
+                //props.label
+                )
             })
 
-            const labelCenterClass = computed(() => {
+            const labelMainClass = computed(() => {
                 return twMerge(twJoin(
-                    ui.value.labelcenter[props.size],
+                    ui.value.main[props.size],
                 ))
             })
             
             const wrapperClass = computed(() => {
-                const bg= (checked.value && !props.bordOnly)? ui.value.background.checked : ui.value.background.unchecked
-                
-                let container = ''
-                if(checked.value && props.bordOnly){
-                    container= `text-${props.color}-500`
-                    
-                } else if(checked.value){
-                    container = ui.value.container.checked 
-                }else{
-                    container= ui.value.container.unchecked
-                }
-              
-                let ring = checked.value? ui.value.ring : ''
-                if(props.bordOnly){
-                    ring = ring.replaceAll('ring-offset-2 ring-offset-white', ' ')
-                    ring = ring.replaceAll('ring-2', 'ring-4')
-                }
-
-                console.log('checked', checked.value)
-                console.log('merge',twMerge(twJoin(
-                    props.size && /*appConfig.ui.colors.includes(props.color) &&*/ ui.value.wrapper[props.size],
-                    bg.replaceAll('{color}', props.color),
-                    ring.replaceAll('{color}', props.color),
-                    container
-                )))
-
                 return twMerge(twJoin(
-                    props.size && /*appConfig.ui.colors.includes(props.color) &&*/ ui.value.wrapper[props.size],
-                    bg.replaceAll('{color}', props.color),
-                    ring.replaceAll('{color}', props.color),
-                    container
+                    props.size && /*appConfig.ui.colors.includes(props.color) &&*/ ui.value.wrapper,
                 ))
             })
 
             return {
                 // eslint-disable-next-line vue/no-dupe-keys
                 checked,
-                ui,
+                //uiSetup,
                 attrs,
                 pick,
                 // eslint-disable-next-line vue/no-dupe-keys
@@ -295,7 +260,7 @@
                 iconClass,
                 innerClass,
                 labelClass,
-                labelCenterClass,
+                labelMainClass,
                 wrapperClass
             }
       }
@@ -306,6 +271,4 @@
     input[type="radio"] {
         display: none;
       }
-     
-      
-    </style>../../utils../../types../../app.config../../ui.config~/src/runtime/types~/src/runtime/utils../../../../src/runtime/utils../../../../src/runtime/types../app.config
+    </style>
