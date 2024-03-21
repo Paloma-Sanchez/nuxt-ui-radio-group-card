@@ -1,9 +1,9 @@
 ---
+title: radio-group-card
 description: Create a button with icon or link capabilities.
 links:
   - label: GitHub
     icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/blob/dev/src/runtime/components/elements/Button.vue
 ---
 
 ## Usage
@@ -12,13 +12,13 @@ Use the default slot to set the text of the Button.
 
 ::component-card
 ---
-code: Button
+code: RadioGroupCard
 ---
 
-Button
+RadioGroupCard
 ::
 
-You can also use the `label` prop.
+You can also use the `label`{style="color: #111827; backgroundColor: #1f2937"} prop.
 
 ::component-card
 ---
@@ -36,10 +36,10 @@ Use the `color` and `variant` props to change the visual style of the Button.
 props:
   color: 'primary'
   variant: 'solid'
-code: Button
+code: RadioGroupCard
 ---
 
-Button
+RadioGroupCard
 ::
 
 Besides all the colors from the `ui.colors` object, you can also use the `white`, `gray` and `black` colors with their pre-defined variants.
@@ -60,10 +60,10 @@ options:
       - ghost
 excludedProps:
   - color
-code: Button
+code: RadioGroupCard
 ---
 
-Button
+RadioGroupCard
 ::
 
 #### Gray
@@ -82,10 +82,10 @@ options:
       - link
 excludedProps:
   - color
-code: Button
+code: RadioGroupCard
 ---
 
-Button
+RadioGroupCard
 ::
 
 #### Black
@@ -103,10 +103,10 @@ options:
       - link
 excludedProps:
   - color
-code: Button
+code: RadioGroupCard
 ---
 
-Button
+RadioGroupCard
 ::
 
 ### Size
@@ -117,10 +117,10 @@ Use the `size` prop to change the size of the Button.
 ---
 props:
   size: 'sm'
-code: Button
+code: RadioGroupCard
 ---
 
-Button
+RadioGroupCard
 ::
 
 ### Rounded
@@ -295,14 +295,13 @@ To stack buttons as a group, use the `ButtonGroup` component.
 - To change the orientation of the buttons, set the `orientation` prop to `vertical`
 - To adjust the rounded or the shadow around buttons, customize with `ui.buttonGroup.rounded` or `ui.buttonGroup.shadow`
 
-::component-card{slug="UButtonGroup"}
+::component-card{slug="RadioGroupCard"}
 ---
 props:
   size: 'sm'
   orientation: 'horizontal'
 code: |
-  <UButton label="Action" color="white" />
-    <UButton icon="i-heroicons-chevron-down-20-solid" color="gray" />
+
 ---
 
 #default
@@ -312,14 +311,13 @@ code: |
 
 This can also work with an [Input](/components/input) component for example:
 
-::component-card{slug="UButtonGroup"}
+::component-card{slug="RadioGroupCard"}
 ---
 props:
   size: 'sm'
   orientation: 'horizontal'
 code: |
-  <UInput />
-  <UButton icon="i-heroicons-clipboard-document" color="gray" />
+
 ---
 
 #default
@@ -373,12 +371,12 @@ excludedProps:
 
 ::tabs
   :component-props{label="Button"}
-  :component-props{label="ButtonGroup" slug="UButtonGroup"}
+  :component-props{label="ButtonGroup" slug="RadioGroupCard"}
 ::
 
 ## Config
 
 ::tabs
   :component-preset{label="Button"}
-  :component-preset{label="ButtonGroup" slug="ButtonGroup"}
+  :component-preset{label="ButtonGroup" slug="RadioGroupCard"}
 ::
