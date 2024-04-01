@@ -2,6 +2,10 @@
   <div> 
     <div class="relative flex border border-gray-200 dark:border-gray-700 rounded-t-md overflow-hidden not-prose">
       <pre>{{ propsToSelect.disabled }}</pre>
+      <pre>{{ baseProps}}</pre>
+      <pre>{{ baseProps.modelValue }}</pre>
+      <pre>{{ modelValue }}</pre>
+
       <div 
        
         class="flex flex-col gap-0.5 justify-between py-1.5 font-medium bg-gray-50 dark:bg-gray-800 border-r border-r-gray-200 dark:border-r-gray-700"
@@ -64,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-
+import {computed, reactive, toRef} from 'vue'
 
 const props = defineProps({
   slug: {
@@ -133,24 +137,26 @@ const props = defineProps({
 const baseProps = reactive({ ...props.baseProps })
 const propsToSelect = reactive({ ...props.props })
 const componentPropsToSelect = reactive({ ...props.componentProps })
+const modelValue = toRef(baseProps.modelValue); // `toRefs` converts each property in the props to a ref
 
 const vModel = computed({
+  // Getter returns the current value of the prop
+  get: () => modelValue.value,
+
+  // Setter emits an event to notify the parent that the value should change
+  set: (value) => {
+    modelValue.value= value;
+  },
+});
+
+/*const vModel = computed({
   get: () => baseProps.modelValue,
   set: (value) => {
     baseProps.modelValue = value
   }
-})
+})*/
 
-/*const propsToSelect = computed(() => Object.keys(componentProps).map((key) => {
 
-  return {
-    type: 'string',
-    name: 'legend',
-    label: 'Legend',
-    options: []
-  }
-})
-)*/
 
 const upoptions = [
   {

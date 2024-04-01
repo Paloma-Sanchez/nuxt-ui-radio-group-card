@@ -3,7 +3,7 @@
     :class="wrapperClass"
   >
     <input
-      :id="option.value"
+      :id="genId"
       v-model="pick"
       class="peer"
       :disabled="disabled"
@@ -16,7 +16,7 @@
     >
     <label
       :class="labelClass"
-      :for="option.value"
+      :for="genId"
     >
       <slot
         name="label"
@@ -87,185 +87,188 @@
     </label>
   </div>
 </template>
-    <script lang="ts">
-    import { computed, defineComponent, inject, toRef } from 'vue'
-    import { twMerge, twJoin } from 'tailwind-merge'
-    import { mergeConfig } from '../utils'
-    import { useUI } from '../composables/useUI'
-    import type { Strategy } from '../types'
-    //import appConfig from '../app.config'
-    import { radioCard } from '../ui.config'
-    import colors from 'tailwindcss/colors'
+<script lang="ts">
+import { computed, defineComponent, inject, toRef } from 'vue'
+import { twMerge, twJoin } from 'tailwind-merge'
+import { mergeConfig } from '../utils'
+import { useUI } from '../composables/useUI'
+import type { Strategy } from '../types'
+//import appConfig from '../app.config'
+import { radioCard } from '../ui.config'
+import colors from 'tailwindcss/colors'
 
-    const config = mergeConfig<typeof radioCard>("merge", /*appConfig.ui.radioCard,*/ radioCard)
-    
-    export default defineComponent({
-        name:'RadioCard',
-        props: {
-            id: {
-                type: String,
-                default: null
-            },
-            value: {
-                type: [String, Number, Boolean],
-                default: null
-            },
-            modelValue: {
-                type: [String, Number, Boolean, Object],
-                default: null
-            },
-            name: {
-                type: String,
-                default: null
-            },
-            disabled: {
-                type: Boolean,
-                default: false
-            },
-            help: {
-                type: String,
-                default: null
-            },
-            label: {
-                type: String,
-                default: null
-            },
-            required: {
-                type: Boolean,
-                default: false
-            },
-            color: {
-                type: String as PropType<typeof colors[number]>,
-                default: () => config.default.color,
-                
-            },
-            inputClass: {
-                type: String,
-                default: null
-            },
-            class: {
-                type: [String, Object, Array] as PropType<any>,
-                default: () => ''
-            },
-            ui: {
-                type: Object as PropType<Partial<typeof config> & { strategy?: Strategy }>,
-                default: () => ({})
-            },
-            option:{
-                type:Object,
-                default:() => {}
-            },
-            size:{
-                type: String,
-                default: () => config.default.size
-            },
-            variant:{
-                type: String,
-                default: () => config.default.variant
-            }
-        },
 
-        emits: ['update:modelValue', 'change'],
+const config = mergeConfig<typeof radioCard>("merge", /*appConfig.ui.radioCard,*/ radioCard)
 
-        setup (props, { emit }) {
-            const { ui, attrs } = useUI('radio', toRef(props, 'ui'), config, toRef(props, 'class'))
-            //if(props.size==='md')console.log('ui md', ui.value)
-            const radioGroup = inject('radio-group', null)
-            const { emitFormChange, color, name } = radioGroup ?? useFormGroup(props, config)
-    
-            const pick = computed({
-            get () {
-                return props.modelValue
-            },
-            set (value) {
-                emit('update:modelValue', value)
-                emit('change', value)
-    
-                if (!radioGroup) {
-                emitFormChange()
-                }
-            }
-            })
-    
-            const checked = computed(() => props.modelValue === props.value )
+export default defineComponent({
+  name:'RadioCard',
+  props: {
+    id: {
+      type: String,
+      default: null
+    },
+    value: {
+      type: [String, Number, Boolean],
+      default: null
+    },
+    modelValue: {
+      type: [String, Number, Boolean, Object],
+      default: null
+    },
+    name: {
+      type: String,
+      default: null
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    help: {
+     type: String,
+       default: null
+    },
+    label: {
+      type: String,
+      default: null
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
+    color: {
+      type: String as PropType<typeof colors[number]>,
+      default: () => config.default.color,
+      
+    },
+    inputClass: {
+      type: String,
+      default: null
+    },
+    class: {
+      type: [String, Object, Array] as PropType<any>,
+      default: () => ''
+    },
+    ui: {
+      type: Object as PropType<Partial<typeof config> & { strategy?: Strategy }>,
+      default: () => ({})
+    },
+    option:{
+      type:Object,
+      default:() => {}
+    },
+    size:{
+      type: String,
+      default: () => config.default.size
+    },
+    variant:{
+      type: String,
+      default: () => config.default.variant
+    }
+  },
 
-            const descriptionClass= computed(() => {
-                const mergedClass = (checked.value && props.variant==='solid')? 
-                twJoin(
-                    ui.value.description.unchecked,
-                    ui.value.description.checked
-                ):ui.value.description.unchecked
+  emits: ['update:modelValue', 'change'],
 
-                return mergedClass
-            })
+  setup (props, { emit }) {
+    const { ui, attrs } = useUI('radio', toRef(props, 'ui'), config, toRef(props, 'class'))
+    //if(props.size==='md')console.log('ui md', ui.value)
+    const radioGroup = inject('radio-group', null)
+    const { emitFormChange, color, name } = radioGroup ?? useFormGroup(props, config)
+    const genId = useId()
 
-            const iconClass = computed(() => {
-                let textColor = ''
-                if(checked.value){
-                    if(props.variant==='outline'){
-                        textColor = `text-${props.color}-500`
-                    }
-                }else{
-                    textColor = 'text-gray-400'
-                }
-
-                return twJoin(
-                    ui.value.icon[props.size],
-                    textColor
-                )
-            })
-
-            const innerClass = computed(() => {
-                let justify =''
-                props.size==='xs'?justify='justify-center':''
-
-                return twMerge(twJoin(
-                    ui.value.container,
-                    justify
-                ))
-            })
-
-            const labelClass = computed(() => {
-                return twMerge(twJoin(ui.value.size[props.size], 
-                ui.value.variant[props.variant].replaceAll('{color}', props.color)),
-                //props.label
-                )
-            })
-
-            const labelMainClass = computed(() => {
-                return twMerge(twJoin(
-                    ui.value.main[props.size],
-                ))
-            })
-            
-            const wrapperClass = computed(() => {
-                return twMerge(twJoin(
-                    props.size && /*appConfig.ui.colors.includes(props.color) &&*/ ui.value.wrapper,
-                ))
-            })
-
-            return {
-                // eslint-disable-next-line vue/no-dupe-keys
-                checked,
-                //uiSetup,
-                attrs,
-                pick,
-                // eslint-disable-next-line vue/no-dupe-keys
-                name,
-                // eslint-disable-next-line vue/no-dupe-keys
-                descriptionClass,
-                iconClass,
-                innerClass,
-                labelClass,
-                labelMainClass,
-                wrapperClass
-            }
+    const pick = computed({
+      get () {
+        return props.modelValue
+      },
+      set (value) {
+        emit('update:modelValue', value)
+        emit('change', value)
+      
+        if (!radioGroup) {
+          emitFormChange()
+        }
       }
     })
+  
+    const checked = computed(() => props.modelValue === props.value )
+    const descriptionClass= computed(() => {
+      const mergedClass = (checked.value && props.variant==='solid')? 
+      twJoin(
+        ui.value.description.unchecked,
+        ui.value.description.checked
+      ):
+      ui.value.description.unchecked
+        
+      return mergedClass
+    })
 
-    </script>
-    <style scoped>
-    input[type="radio"] {
-        display: none;
+    const iconClass = computed(() => {
+      let textColor = ''
+      if(checked.value){
+        if(props.variant==='outline'){
+          textColor = `text-${props.color}-500`
+        }
+      }else{
+        textColor = 'text-gray-400'
       }
-    </style>
+
+      return twJoin(
+        ui.value.icon[props.size],
+        textColor
+      )
+    })
+
+    const innerClass = computed(() => {
+      let justify =''
+      props.size==='xs'?justify='justify-center':''
+
+      return twMerge(twJoin(
+        ui.value.container,
+        justify
+      ))
+    })
+
+    const labelClass = computed(() => {
+      return twMerge(twJoin(ui.value.size[props.size], 
+        ui.value.variant[props.variant].replaceAll('{color}', props.color)),
+        //props.label
+      )
+    })
+
+    const labelMainClass = computed(() => {
+      return twMerge(twJoin(
+        ui.value.main[props.size],
+      ))
+    })
+              
+    const wrapperClass = computed(() => {
+      return twMerge(twJoin(
+        props.size && /*appConfig.ui.colors.includes(props.color) &&*/ ui.value.wrapper,
+      ))
+    })
+
+    return {
+      genId,
+      // eslint-disable-next-line vue/no-dupe-keys
+      checked,
+      //uiSetup,
+      attrs,
+      pick,
+      // eslint-disable-next-line vue/no-dupe-keys
+      name,
+      // eslint-disable-next-line vue/no-dupe-keys
+      descriptionClass,
+      iconClass,
+      innerClass,
+      labelClass,
+      labelMainClass,
+      wrapperClass
+    }
+  }
+})
+
+</script>
+<style scoped>
+  input[type="radio"] {
+    display: none;
+  }
+</style>

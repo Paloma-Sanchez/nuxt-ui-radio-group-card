@@ -114,7 +114,7 @@ componentProps:
           - '10 GB SSD disk'
         disabled: true
 baseProps:
-  modelValue: 'Startup'
+  modelValue: 'Business'
 ---
 ::
 
