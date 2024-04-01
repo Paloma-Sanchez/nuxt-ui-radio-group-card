@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -10,6 +11,34 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxt/ui',
-    //'@nuxtjs/tailwind'
-]
+    'nuxt-ui-radio-gp-card',
+    '@nuxtjs/color-mode',
+    //'@nuxtjs/tailwind',
+    '@tailwindcss/typography'
+  ],
+  colorMode: {
+    preference: 'light'
+  },
+  ui: {
+    safelistColors: [
+      "red",
+      "orange",
+      "amber",
+      "yellow",
+      "lime",
+      "green",
+      "emerald",
+      "teal",
+      "cyan",
+      "sky",
+      "blue",
+      "indigo",
+      "violet",
+      "purple",
+      "fuchsia",
+      "pink",
+      "rose",
+      "primary"
+    ]
+  }
 })

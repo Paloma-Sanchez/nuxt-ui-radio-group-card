@@ -13,7 +13,7 @@ export default {
   size: {
     xs:'labelxs w-[80px] aspect-ratio p-2 text-md  flex items-center justify-center',
     sm:'labelsm w-[200px] aspect-ratio p-5 text-sm  flex items-center justify-between',
-    md:'labelmd h-[72px] w-full pr-6 text-sm  flex items-center justify-between'
+    md:'labelmd h-20 w-full pr-6 text-sm  flex items-center justify-between'
   },
   description:{
     checked:'text-white',

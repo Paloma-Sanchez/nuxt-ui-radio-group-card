@@ -1,27 +1,13 @@
 <template>
   <div>
-    <h1>hello</h1>
-    <div 
-      class="prose" 
-    >
-      <ContentDoc />
-    </div>
-    <landing-page />
-    <radio-group-card
-      v-model="selected"
-      :options="options"
-      legend="helle wordl"
-      color="violet"
-      required
-      variant="ghost"
-      help="Please choose one"
-      class="w-full" 
-    />
+    <h1>{{ 'Landing page starts' }}</h1>
   </div>
 </template>
-<script setup>
 
-const options = [
+<script setup>
+  import sections from '../landing.json'
+
+  const options = [
   {
     value: 'Startup',
     label: 'Startup',
@@ -47,6 +33,5 @@ const options = [
 ];
 
 const selected = ref(options[0].value);
-
-
 </script>
+

@@ -7,8 +7,8 @@ export { default as kbd } from './elements/kbd'
 export { default as input } from './forms/input'
 export { default as inputMenu } from './forms/inputMenu'
 export { default as formGroup } from './forms/formGroup'
-export { default as radioGroup } from './forms/radioGroup'
-export { default as radio } from './forms/radio'
+export { default as radioCardGroup } from './forms/radioCardGroup'
+export { default as radioCard } from './forms/radioCard'
 export { default as checkbox } from './forms/checkbox'
 
 // Layout

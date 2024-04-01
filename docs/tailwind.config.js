@@ -1,12 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["../docus/**/*.{html,vue,ts,js}"],
+  content: [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./app.vue",
+    "./error.vue",
+  ],
   theme: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/typography')
-  ],
   safelist: [
     {
       pattern: /pr-(1|6)/
@@ -55,5 +59,6 @@ export default {
       variants: ['peer-disabled']
     }
   ],
+  plugins: [],
 }
 

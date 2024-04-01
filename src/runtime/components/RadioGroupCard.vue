@@ -62,8 +62,8 @@ import { useUI } from '../composables/useUI'
 import { useFormGroup } from '../composables/useFormGroup'
 import { mergeConfig, get } from '../utils'
 import type { Strategy } from '../types'
-import appConfig from '../app.config'
-import { radioGroup, radio} from '../ui.config'
+//import appConfig from '../app.config'
+import { radioCardGroup, radioCard} from '../ui.config'
 import colors from 'tailwindcss/colors'
 import { omit } from '../../runtime/utils/lodash'
 //import { colorsToExclude } from '../../colors'
@@ -85,8 +85,8 @@ const approuvedColors = Object.keys(omit(colors, colorsToExclude))
 approuvedColors.push("primary")
 approuvedColors.push("gray")
 
-const config = mergeConfig<typeof radioGroup>("merge", appConfig.ui.radioGroup, radioGroup)
-const configRadio = mergeConfig<typeof radio>("merge", appConfig.ui.radioCard, radio)
+const config = mergeConfig<typeof radioCardGroup>("merge", /*appConfig.ui.radioGroup,*/ radioCardGroup)
+const configRadio = mergeConfig<typeof radioCard>("merge", /*appConfig.ui.radioCard,*/ radioCard)
 
 export default defineComponent({
   name: 'RadioGroupCard',

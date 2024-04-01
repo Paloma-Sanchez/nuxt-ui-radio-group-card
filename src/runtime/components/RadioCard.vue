@@ -93,11 +93,11 @@
     import { mergeConfig } from '../utils'
     import { useUI } from '../composables/useUI'
     import type { Strategy } from '../types'
-    import appConfig from '../app.config'
-    import { radio } from '../ui.config'
+    //import appConfig from '../app.config'
+    import { radioCard } from '../ui.config'
     import colors from 'tailwindcss/colors'
 
-    const config = mergeConfig<typeof radio>("merge", appConfig.ui.radioCard, radio)
+    const config = mergeConfig<typeof radioCard>("merge", /*appConfig.ui.radioCard,*/ radioCard)
     
     export default defineComponent({
         name:'RadioCard',

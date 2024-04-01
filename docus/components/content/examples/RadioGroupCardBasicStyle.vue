@@ -1,24 +1,17 @@
 <template>
-  <div>
-    <h1>hello</h1>
-    <div 
-      class="prose" 
-    >
-      <ContentDoc />
-    </div>
-    <landing-page />
-    <radio-group-card
-      v-model="selected"
-      :options="options"
-      legend="helle wordl"
-      color="violet"
-      required
-      variant="ghost"
-      help="Please choose one"
-      class="w-full" 
-    />
-  </div>
+  <radio-group-card
+    v-model="selected"
+    :options="options"
+    :model-value="selected"
+    legend="helle wordl"
+    color="violet"
+    required
+    variant="ghost"
+    help="Please choose one"
+    class="w-full" 
+  />
 </template>
+
 <script setup>
 
 const options = [
@@ -47,6 +40,5 @@ const options = [
 ];
 
 const selected = ref(options[0].value);
-
 
 </script>

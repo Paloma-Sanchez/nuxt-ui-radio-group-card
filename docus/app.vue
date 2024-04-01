@@ -1,7 +1,4 @@
 <template>
-  <div>
-    <NuxtPage
-      class="prose"
-    />
-  </div>
+  <NuxtPage />
 </template>
+

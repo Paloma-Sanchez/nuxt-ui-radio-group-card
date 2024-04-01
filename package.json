@@ -1,6 +1,6 @@
 {
   "name": "nuxt-ui-radio-gp-card",
-  "version": "0.0.8",
+  "version": "0.0.17",
   "description": "My new Nuxt module",
   "repository": "https://github.com/Paloma-Sanchez/nuxt-ui-radio-group-card",
   "license": "MIT",
@@ -18,16 +18,14 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build build",
-    "dev": "nuxi dev docus p -3001",
-    "play": "nuxi dev playground p -3002",
-    "dev:build": "nuxi build playground",
+    "build": "nuxt-module-build build",
+    "dev": "nuxi dev docus",
+    "play": "nuxi dev playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "@nuxt/devtools": "^1.0.8",
     "autoprefixer": "^10.4.18",
     "nuxt": "^3.10.3",
     "postcss": "^8.4.35",

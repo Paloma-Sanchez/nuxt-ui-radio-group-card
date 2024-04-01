@@ -4,379 +4,324 @@ description: Create a button with icon or link capabilities.
 links:
   - label: GitHub
     icon: i-simple-icons-github
+
 ---
 
 ## Usage
 
-Use the default slot to set the text of the Button.
+Pass an array of arrays to the `items` prop of the Dropdown component. Each array represents a group of items. Each item can have the following properties:
 
-::component-card
----
-code: RadioGroupCard
----
+- `label` - The label of the item.
+- `value` - The class of the item label.
+- `description` - The class of the item icon.
+- `icon` - The icon of the item.
 
-RadioGroupCard
-::
+Use a v-model to make the RadioGroup reactive.
 
-You can also use the `label`{style="color: #111827; backgroundColor: #1f2937"} prop.
 
-::component-card
----
-props:
-  label: Button
----
-::
+## Legend
 
-### Style
+Use the legend prop to add a legend on the top of the RadioGroup.
 
-Use the `color` and `variant` props to change the visual style of the Button.
-
-::component-card
+::component-card-content
 ---
 props:
-  color: 'primary'
-  variant: 'solid'
-code: RadioGroupCard
----
-
-RadioGroupCard
-::
-
-Besides all the colors from the `ui.colors` object, you can also use the `white`, `gray` and `black` colors with their pre-defined variants.
-
-#### White
-
-::component-card
----
-backgroundClass: 'bg-gray-50 dark:bg-gray-800'
-props:
-  color: 'white'
-  variant: 'solid'
-options:
-  - name: variant
-    restriction: expected
-    values:
-      - solid
-      - ghost
-excludedProps:
-  - color
-code: RadioGroupCard
----
-
-RadioGroupCard
-::
-
-#### Gray
-
-::component-card
----
-props:
-  color: 'gray'
-  variant: 'solid'
-options:
-  - name: variant
-    restriction: expected
-    values:
-      - solid
-      - ghost
-      - link
-excludedProps:
-  - color
-code: RadioGroupCard
----
-
-RadioGroupCard
-::
-
-#### Black
-
-::component-card
----
-props:
-  color: 'black'
-  variant: 'solid'
-options:
-  - name: variant
-    restriction: expected
-    values:
-      - solid
-      - link
-excludedProps:
-  - color
-code: RadioGroupCard
----
-
-RadioGroupCard
-::
-
-### Size
-
-Use the `size` prop to change the size of the Button.
-
-::component-card
----
-props:
-  size: 'sm'
-code: RadioGroupCard
----
-
-RadioGroupCard
-::
-
-### Rounded
-
-To customize the border radius of the Button, you can use the `ui` prop.
-
-::component-card
----
-props:
-  ui:
-    rounded: 'rounded-full'
-excludedProps:
-  - ui
-code: Button
----
-
-Button
-::
-
-::callout{icon="i-heroicons-light-bulb"}
-You can customize the whole [preset](#preset) by using the `ui` prop.
-::
-
-### Icon
-
-Use any icon from [Iconify](https://icones.js.org) by setting the `icon` prop by using this pattern: `i-{collection_name}-{icon_name}`.
-
-Use the `leading` and `trailing` props to set the icon position or the `leading-icon` and `trailing-icon` props to set a different icon for each position.
-
-::component-card
----
-props:
-  icon: 'i-heroicons-pencil-square'
-  size: 'sm'
-  color: 'primary'
-  variant: 'solid'
-  label: Button
-  trailing: false
-excludedProps:
-  - icon
-  - label
----
-::
-
-The `label` as prop or slot is optional so you can use the Button as an icon-only button.
-
-::component-card
----
-props:
-  icon: 'i-heroicons-pencil-square'
-  size: 'sm'
-  color: 'primary'
-  square: true
-  variant: 'solid'
-excludedProps:
-  - icon
-  - square
----
-::
-
-### Disabled
-
-Use the `disabled` prop to disable the Button.
-
-::component-card
----
-props:
-  disabled: true
-code: Button
----
-
-Button
-::
-
-### Loading
-
-Use the `loading` prop to show a loading icon and disable the Button.
-
-Use the `loading-icon` prop to set a different icon or change it globally in `ui.button.default.loadingIcon`. Defaults to `i-heroicons-arrow-path-20-solid`.
-
-::component-card
----
-props:
-  loading: true
-code: Button
----
-
-Button
-::
-
-### Block
-
-Use the `block` prop to make the Button fill the width of its container.
-
-::component-card
----
-props:
-  block: true
-code: Button
----
-
-Button
-::
-
-### Link
-
-Use the `to` prop to make the Button a link.
-
-::component-card
----
-props:
-  to: 'https://volta.net'
-  target: '_blank'
-code: Button
----
-
-Button
-::
-
-You can also pass any property from the [NuxtLink](https://nuxt.com/docs/api/components/nuxt-link#props) component such as `target`, `exact`, etc.
-
-### Padded
-
-Use the `padded` prop to remove the padding of the Button.
-
-::component-card
----
-props:
-  padded: false
+  name: 'legend'
+  type: ''
+  legend: 'Legend'
+  disabled: false
+  required: false
+  help: ''
+  slots: ''
+  options: null
+componentProps: 
+  options: 
+      - value: 'Startup'
+        label: 'Startup'
+        description:
+          - '12GB'
+          - '6 CPUs'
+          - '160 GB SSD disk'
+        icon: 'i-heroicons-trash'
+      - value: 'Business'
+        label: 'Business'
+        description:
+          - '16GB'
+          - '8 CPUs'
+          - '512 GB SSD disk'
+      - value: 'Enterprise'
+        label: 'Enterprise'
+        description:
+          - '32GB'
+          - '12 CPUs'
+          - '1024 GB SSD disk'
+      - value: 'Education'
+        label: 'Education'
+        description:
+          - '6GB'
+          - '2 CPUs'
+          - '10 GB SSD disk'
+        disabled: true
 baseProps:
-  color: 'gray'
-  variant: 'link'
-  icon: 'i-heroicons-x-mark-20-solid'
+  modelValue: 'Startup'
 ---
 ::
 
-### Square
+## Size
 
-Use the `square` prop to force the Button to have the same padding horizontally and vertically.
+Use the color prop to change the style of the RadioGroup.
 
-::component-card
+::component-card-content
 ---
 props:
-  square: true
+  name: 'size'
+  type: ''
+  legend: ''
+  size: 'md'
+  style: 'primary'
+  disabled: false
+  required: false
+  help: ''
+  slots: ''
+  options: 
+    ['xs', 'sm', 'md']
+componentProps: 
+  options: 
+      - value: 'Startup'
+        label: 'Startup'
+        description:
+          - '12GB'
+          - '6 CPUs'
+          - '160 GB SSD disk'
+        icon: 'i-heroicons-trash'
+      - value: 'Business'
+        label: 'Business'
+        description:
+          - '16GB'
+          - '8 CPUs'
+          - '512 GB SSD disk'
+      - value: 'Enterprise'
+        label: 'Enterprise'
+        description:
+          - '32GB'
+          - '12 CPUs'
+          - '1024 GB SSD disk'
+      - value: 'Education'
+        label: 'Education'
+        description:
+          - '6GB'
+          - '2 CPUs'
+          - '10 GB SSD disk'
+        disabled: true
 baseProps:
-  label: 'Button'
-  color: 'gray'
-  variant: 'solid'
+  modelValue: 'Startup'
 ---
 ::
 
-### Truncate
+## Style
 
-Use the `truncate` prop to truncate the label of the Button.
+Use the color prop to change the style of the RadioGroup.
 
-::component-card
+::component-card-content
 ---
 props:
-  truncate: true
-  class: 'w-20'
-  label: 'Button with a long text'
-excludedProps:
-  - class
+  name: 'style'
+  type: ''
+  legend: ''
+  style: 'primary'
+  disabled: false
+  required: false
+  help: ''
+  slots: ''
+  options: 
+    [' primary', 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyen', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']
+componentProps: 
+  options: 
+      - value: 'Startup'
+        label: 'Startup'
+        description:
+          - '12GB'
+          - '6 CPUs'
+          - '160 GB SSD disk'
+        icon: 'i-heroicons-trash'
+      - value: 'Business'
+        label: 'Business'
+        description:
+          - '16GB'
+          - '8 CPUs'
+          - '512 GB SSD disk'
+      - value: 'Enterprise'
+        label: 'Enterprise'
+        description:
+          - '32GB'
+          - '12 CPUs'
+          - '1024 GB SSD disk'
+      - value: 'Education'
+        label: 'Education'
+        description:
+          - '6GB'
+          - '2 CPUs'
+          - '10 GB SSD disk'
+        disabled: true
+baseProps:
+  modelValue: 'Startup'
 ---
 ::
 
-## Group
+## Disabled
 
-To stack buttons as a group, use the `ButtonGroup` component.
-
-- To size all the buttons equally, pass the `size` prop
-- To change the orientation of the buttons, set the `orientation` prop to `vertical`
-- To adjust the rounded or the shadow around buttons, customize with `ui.buttonGroup.rounded` or `ui.buttonGroup.shadow`
-
-::component-card{slug="RadioGroupCard"}
+Use the disabled prop to disable the RadioGroup.
+::component-card-content
 ---
 props:
-  size: 'sm'
-  orientation: 'horizontal'
-code: |
-
+  name: 'disabled'
+  type: 'boolean'
+  legend: ''
+  disabled: false
+  required: false
+  help: ''
+  slots: ''
+  options: null
+componentProps: 
+  options: 
+      - value: 'Startup'
+        label: 'Startup'
+        description:
+          - '12GB'
+          - '6 CPUs'
+          - '160 GB SSD disk'
+        icon: 'i-heroicons-trash'
+      - value: 'Business'
+        label: 'Business'
+        description:
+          - '16GB'
+          - '8 CPUs'
+          - '512 GB SSD disk'
+      - value: 'Enterprise'
+        label: 'Enterprise'
+        description:
+          - '32GB'
+          - '12 CPUs'
+          - '1024 GB SSD disk'
+      - value: 'Education'
+        label: 'Education'
+        description:
+          - '6GB'
+          - '2 CPUs'
+          - '10 GB SSD disk'
+        disabled: true
+baseProps:
+  modelValue: 'Startup'
 ---
-
-#default
-:u-button{label="Action" color="white"}
-:u-button{icon="i-heroicons-chevron-down-20-solid" color="gray"}
 ::
 
-This can also work with an [Input](/components/input) component for example:
+## Required
 
-::component-card{slug="RadioGroupCard"}
+Use the required prop to display a red star next to the legend of the RadioGroup.
+::component-card-content
 ---
 props:
-  size: 'sm'
-  orientation: 'horizontal'
-code: |
-
+  name: 'required'
+  type: 'boolean'
+  legend: 'Legend'
+  disabled: false
+  required: false
+  help: ''
+  slots: ''
+  options: null
+componentProps: 
+  options: 
+      - value: 'Startup'
+        label: 'Startup'
+        description:
+          - '12GB'
+          - '6 CPUs'
+          - '160 GB SSD disk'
+        icon: 'i-heroicons-trash'
+      - value: 'Business'
+        label: 'Business'
+        description:
+          - '16GB'
+          - '8 CPUs'
+          - '512 GB SSD disk'
+      - value: 'Enterprise'
+        label: 'Enterprise'
+        description:
+          - '32GB'
+          - '12 CPUs'
+          - '1024 GB SSD disk'
+      - value: 'Education'
+        label: 'Education'
+        description:
+          - '6GB'
+          - '2 CPUs'
+          - '10 GB SSD disk'
+        disabled: true
+baseProps:
+  modelValue: 'Startup'
 ---
+::
 
-#default
-:u-input
-:u-button{icon="i-heroicons-clipboard-document" color="gray"}
+## Help
+
+Use the help prop to display some text under the RadioGroup legend.
+::component-card-content
+---
+props:
+  name: 'help'
+  type: ''
+  legend: 'Legend'
+  disabled: false
+  required: false
+  help: 'Please choose one'
+  slots: ''
+  options: null
+componentProps: 
+  options: 
+      - value: 'Startup'
+        label: 'Startup'
+        description:
+          - '12GB'
+          - '6 CPUs'
+          - '160 GB SSD disk'
+        icon: 'i-heroicons-trash'
+      - value: 'Business'
+        label: 'Business'
+        description:
+          - '16GB'
+          - '8 CPUs'
+          - '512 GB SSD disk'
+      - value: 'Enterprise'
+        label: 'Enterprise'
+        description:
+          - '32GB'
+          - '12 CPUs'
+          - '1024 GB SSD disk'
+      - value: 'Education'
+        label: 'Education'
+        description:
+          - '6GB'
+          - '2 CPUs'
+          - '10 GB SSD disk'
+        disabled: true
+baseProps:
+  modelValue: 'Startup'
+---
 ::
 
 ## Slots
 
-### `leading`
+### `item`
 
-Use the `#leading` slot to set the content of the leading icon.
+Use the #label slot to override the label of each option.
 
-::component-card
----
-slots:
-  leading: <UAvatar src="https://avatars.githubusercontent.com/u/739984?v=4" size="3xs" />
-baseProps:
-  color: 'gray'
-props:
-  label: Button
-  color: 'gray'
-excludedProps:
-  - color
----
+### `legend`
 
-#leading
-  :u-avatar{src="https://avatars.githubusercontent.com/u/739984?v=4" size="3xs"}
-::
-
-### `trailing`
-
-Use the `#trailing` slot to set the content of the trailing icon.
-
-::component-card
----
-slots:
-  trailing: <UIcon name="i-heroicons-arrow-right-20-solid" />
-props:
-  label: Button
-  color: 'gray'
-excludedProps:
-  - color
----
-
-#trailing
-  :u-icon{name="i-heroicons-arrow-right-20-solid"}
-::
+Use the #label slot to override the label of each option.
 
 ## Props
 
-::tabs
-  :component-props{label="Button"}
-  :component-props{label="ButtonGroup" slug="RadioGroupCard"}
-::
 
 ## Config
 
-::tabs
-  :component-preset{label="Button"}
-  :component-preset{label="ButtonGroup" slug="RadioGroupCard"}
-::
+

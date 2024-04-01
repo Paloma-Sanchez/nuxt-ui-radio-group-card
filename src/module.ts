@@ -51,6 +51,7 @@ export default defineNuxtModule<ModuleOptions>({
       tailwindConfig.theme = tailwindConfig.theme || {}
       tailwindConfig.theme.extend = tailwindConfig.theme.extend || {}
       tailwindConfig.theme.extend.colors = tailwindConfig.theme.extend.colors || {}
+      tailwindConfig.important = true
     
       const globalColors: any = {
         ...(tailwindConfig.theme.colors || defaultColors),

@@ -1,0 +1,226 @@
+{
+    "sections":[
+        {
+            "title" : "Legend",
+            "description": "Use the legend prop to display a legend on the right of the Radio.",
+            "props" : {
+                "name":"legend",
+                "type": "",
+                "legend":"Legend",
+                "disabled": false,
+                "required":false,
+                "help":"",
+                "slots":"",
+                "options":[]
+            },
+            "componentProps":{
+                "options":[
+                    {
+                        "value": "'Startup'",
+                        "label": "'Startup'",
+                        "description":["'12GB'", "'6 CPUs'", "'160 GB SSD disk'"],
+                        "icon":"'i-heroicons-trash'"
+                    },
+                    {
+                        "value": "'Business'",
+                        "label": "'Business'",
+                        " description":["'16GB'", "'8 CPUs'", "'512 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Enterprise'",
+                        "label": "'Enterprise'",
+                        " description":["'32GB'", "'12 CPUs'", "'1024 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Education'",
+                        "label": "'Education'",
+                        "disabled": true
+                    }
+                ]
+            }
+        },
+        {
+            "title" : "Style",
+            "description": "Use the color prop to change the style of the RadioGroup.",
+            "props" : {
+                "name":"style",
+                "type": "",
+                "legend":"Legend",
+                "style": "primary",
+                "disabled": false,
+                "required":false,
+                "help":"",
+                "slots":"",
+                "options":["red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyen", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose", " primary"]
+            },
+            "componentProps":{
+                "options":[
+                    {
+                        "value": "'Startup'",
+                        "label": "'Startup'",
+                        "description":["'12GB'", "'6 CPUs'", "'160 GB SSD disk'"],
+                        "icon":"'i-heroicons-trash'"
+                    },
+                    {
+                        "value": "'Business'",
+                        "label": "'Business'",
+                        " description":["'16GB'", "'8 CPUs'", "'512 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Enterprise'",
+                        "label": "'Enterprise'",
+                        " description":["'32GB'", "'12 CPUs'", "'1024 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Education'",
+                        "label": "'Education'",
+                        "disabled": true
+                    }
+                ]
+            }
+        },
+        {
+            "title" : "Disabled",
+            "description": "Use the disabled prop to disable the RadioGroup.",
+            "props" : {
+                "name": "disabled",
+                "type": "boolean",
+                "legend":"",
+                "disabled": false,
+                "help":"",
+                "slots":"",
+                "options":["hello", "bye"]
+            },
+            "componentProps":{
+                "options":[
+                    {
+                        "value": "'Startup'",
+                        "label": "'Startup'",
+                        "description":["'12GB'", "'6 CPUs'", "'160 GB SSD disk'"],
+                        "icon":"'i-heroicons-trash'"
+                    },
+                    {
+                        "value": "'Business'",
+                        "label": "'Business'",
+                        " description":["'16GB'", "'8 CPUs'", "'512 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Enterprise'",
+                        "label": "'Enterprise'",
+                        " description":["'32GB'", "'12 CPUs'", "'1024 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Education'",
+                        "label": "'Education'",
+                        "disabled": true
+                    }
+                ]
+            }
+        },
+        {
+            "title" : "Required",
+            "description": "Use the required prop to display a red star next to the legend of the Radio..",
+            "props" : {
+                "name":"required",
+                "type": "boolean",
+                "legend":"Legend",
+                "disabled": false,
+                "required":false,
+                "help":"",
+                "slots":"",
+                "options":[]
+            },
+            "componentProps":{
+                "options":[
+                    {
+                        "value": "'Startup'",
+                        "label": "'Startup'",
+                        "description":["'12GB'", "'6 CPUs'", "'160 GB SSD disk'"],
+                        "icon":"'i-heroicons-trash'"
+                    },
+                    {
+                        "value": "'Business'",
+                        "label": "'Business'",
+                        " description":["'16GB'", "'8 CPUs'", "'512 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Enterprise'",
+                        "label": "'Enterprise'",
+                        " description":["'32GB'", "'12 CPUs'", "'1024 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Education'",
+                        "label": "'Education'",
+                        "disabled": true
+                    }
+                ]
+            }
+        },
+        {
+            "title" : "Help",
+            "description": "Use the help prop to display some text under the Radio.",
+            "props" : {
+                "name":"help",
+                "type": "",
+                "legend":"",
+                "disabled": false,
+                "help":"Please choose one",
+                "slots":"",
+                "options":[]
+            },
+            "componentProps":{
+                "options":[
+                    {
+                        "value": "'Startup'",
+                        "label": "'Startup'",
+                        "description":["'12GB'", "'6 CPUs'", "'160 GB SSD disk'"],
+                        "icon":"'i-heroicons-trash'"
+                    },
+                    {
+                        "value": "'Business'",
+                        "label": "'Business'",
+                        " description":["'16GB'", "'8 CPUs'", "'512 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Enterprise'",
+                        "label": "'Enterprise'",
+                        " description":["'32GB'", "'12 CPUs'", "'1024 GB SSD disk'"]
+                    },
+                    {
+                        "value": "'Education'",
+                        "label": "'Education'",
+                        "disabled": true
+                    }
+                ]
+            }
+        },
+        {
+            "title" : "Slots",
+            "description": "",
+            "subsections":[
+                {
+                    "title" : "Disabled",
+                    "description": "Use the disabled prop to disable the RadioGroup.",
+                    "props" : {
+                        "type": "",
+                        "label":"",
+                        "disabled": false,
+                        "help":"",
+                        "slots":""
+                    }
+                },
+                {
+                    "title" : "Label",
+                    "description": "Use the label prop to display a label on the right of the Radio.",
+                    "props" : {
+                        "type": "",
+                        "label":"",
+                        "disabled": false,
+                        "help":"",
+                        "slots":""
+                    }
+                }
+            ]
+        }
+    ]
+}

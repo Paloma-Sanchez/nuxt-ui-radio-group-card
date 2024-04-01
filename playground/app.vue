@@ -8,7 +8,6 @@
     <radioGroupCard
       v-model="selected"
       :options="options"
-      :model-value="selected"
       legend="helle wordl"
       color="violet"
       required
@@ -30,7 +29,6 @@
   <radioGroupCard
     v-model="selected"
     :options="options2"
-    :model-value="selected"
     size="sm"
     legend="hello twice"
     color="red"

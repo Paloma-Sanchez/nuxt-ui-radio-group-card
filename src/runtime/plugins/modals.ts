@@ -1,4 +1,4 @@
-import { defineNuxtPlugin } from '#imports'
+import { defineNuxtPlugin } from "nuxt3/app"
 import { shallowRef } from 'vue'
 import { modalInjectionKey } from '../composables/useModal'
 import type { ModalState } from '../../../../src/runtime/types/modal'
