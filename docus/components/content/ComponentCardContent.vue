@@ -1,11 +1,6 @@
 <template>
   <div> 
     <div class="relative flex border border-gray-200 dark:border-gray-700 rounded-t-md overflow-hidden not-prose">
-      <pre>{{ propsToSelect.disabled }}</pre>
-      <pre>{{ baseProps}}</pre>
-      <pre>{{ baseProps.modelValue }}</pre>
-      <pre>{{ modelValue }}</pre>
-
       <div 
        
         class="flex flex-col gap-0.5 justify-between py-1.5 font-medium bg-gray-50 dark:bg-gray-800 border-r border-r-gray-200 dark:border-r-gray-700"
@@ -49,7 +44,7 @@
       </div>
     </div>
     <div 
-      class="flex border border-b-0 border-gray-200 dark:border-gray-700 relative not-prose" 
+      class="flex justify-center border border-b-0 border-gray-200 dark:border-gray-700 relative not-prose" 
       :class="[{ 'p-4': padding }, propsToSelect.length ? 'border-t-0' : 'rounded-t-md', backgroundClass, extraClass]"
     >
       <RadioGroupCard 

@@ -3,10 +3,9 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default <Partial<Config>>{
   theme: {
-    
-      fontFamily: {
-        'sans': ['"DM Sans"', '"DM Sans fallback"', ...defaultTheme.fontFamily.sans]
-      },
+    fontFamily: {
+      'sans': ['"DM Sans"', '"DM Sans fallback"', ...defaultTheme.fontFamily.sans]
+    },
     extend: {
       colors: {
         green: {

@@ -1,27 +1,20 @@
 ---
-title: radio-group-card
-description: Create a button with icon or link capabilities.
+title: Radio Card Group 
+description: Display a set of radio buttons.
 links:
   - label: GitHub
     icon: i-simple-icons-github
-
+    to: https://github.com/Paloma-Sanchez/nuxt-ui-radio-group-card
 ---
 
 ## Usage
 
-Pass an array of arrays to the `items` prop of the Dropdown component. Each array represents a group of items. Each item can have the following properties:
-
-- `label` - The label of the item.
-- `value` - The class of the item label.
-- `description` - The class of the item icon.
-- `icon` - The icon of the item.
-
-Use a v-model to make the RadioGroup reactive.
+Use a `v-model` to make the RadioGroup reactive. 
 
 
-## Legend
+### Legend
 
-Use the legend prop to add a legend on the top of the RadioGroup.
+Use the `legend` prop to add a legend on the top of the RadioGroup.
 
 ::component-card-content
 ---
@@ -67,9 +60,9 @@ baseProps:
 ---
 ::
 
-## Size
+### Size
 
-Use the color prop to change the style of the RadioGroup.
+Use the `size` prop to change the size of the cards in the RadioGroup.
 
 ::component-card-content
 ---
@@ -118,9 +111,9 @@ baseProps:
 ---
 ::
 
-## Style
+### Style
 
-Use the color prop to change the style of the RadioGroup.
+Use the `color` prop to change the style of the cards in the RadioGroup.
 
 ::component-card-content
 ---
@@ -168,9 +161,11 @@ baseProps:
 ---
 ::
 
-## Disabled
+### Disabled
 
-Use the disabled prop to disable the RadioGroup.
+Use the `disabled` prop to disable the whole RadioGroup. 
+Alternatively, you can pass `disabled` prop to each individual RadioCard:
+
 ::component-card-content
 ---
 props:
@@ -215,9 +210,9 @@ baseProps:
 ---
 ::
 
-## Required
+### Required
 
-Use the required prop to display a red star next to the legend of the RadioGroup.
+Use the `required` prop to display a red star next to the legend of the RadioGroup.
 ::component-card-content
 ---
 props:
@@ -262,9 +257,10 @@ baseProps:
 ---
 ::
 
-## Help
+### Help
 
-Use the help prop to display some text under the RadioGroup legend.
+Use the `help` prop to display some text under the RadioGroup legend.
+
 ::component-card-content
 ---
 props:
@@ -315,7 +311,7 @@ baseProps:
 
 Use the #label slot to override the label of each option.
 
-### `legend`
+
 
 Use the #label slot to override the label of each option.
 

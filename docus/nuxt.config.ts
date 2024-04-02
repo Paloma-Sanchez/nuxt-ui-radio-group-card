@@ -13,8 +13,10 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     'nuxt-ui-radio-gp-card',
     '@nuxtjs/color-mode',
+    'nuxt-svgo',
     //'@nuxtjs/tailwind',
-    '@tailwindcss/typography'
+    '@tailwindcss/typography',
+    '@nuxtjs/google-fonts'
   ],
   colorMode: {
     preference: 'light'
@@ -40,5 +42,10 @@ export default defineNuxtConfig({
       "rose",
       "primary"
     ]
+  },
+  googleFonts: {
+    families: {
+      'DM Sans': '300..700',
+    }
   }
 })

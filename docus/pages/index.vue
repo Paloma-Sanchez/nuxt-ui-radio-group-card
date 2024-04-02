@@ -1,22 +1,31 @@
 <template>
-  <div>
-    <h1>hello</h1>
-    <div 
-      class="prose" 
-    >
-      <ContentDoc />
-    </div>
-    <landing-page />
-    <radio-group-card
-      v-model="selected"
-      :options="options"
-      legend="helle wordl"
-      color="violet"
-      required
-      variant="ghost"
-      help="Please choose one"
-      class="w-full" 
+  <div
+    class="font-sans"
+  >
+    <Header 
+      class="sticky top-0"
     />
+    <div class="flex justify-center mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div
+        class="flex flex-col lg:grid lg:grid-cols-10 lg:gap-8"
+      >
+        <div class="lg:col-span-9">
+          <PageHeader />
+          <div 
+            class="prose dark:prose-invert"  
+          >
+            <ContentDoc />
+          </div>
+        </div>
+      </div>
+      <div
+        class="lg:col-span-2 order-first lg:order-last"
+      >
+        <Aside 
+          class="sticky top-10"
+        />
+      </div>
+    </div>
   </div>
 </template>
 <script setup>
