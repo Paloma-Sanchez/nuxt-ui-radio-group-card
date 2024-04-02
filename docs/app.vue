@@ -1,5 +1,13 @@
 <template>
-  <div>
+  <Html class="dark:bg-gray-900">
     <NuxtPage />
-  </div>
+  </Html>
 </template>
+<style>
+body{
+  background-color: aqua;
+}
+.dark-mode body{
+  background-color: aqua;
+}
+</style>

@@ -23,11 +23,18 @@
               {{ contentQuery?.title }}
             </h1>
             <UButton
-              :icon="contentQuery.links[0].icon"
               :label="contentQuery.links[0].label"
               :to="contentQuery.links[0].to"
+              color="white"
               target="_blank"
-            />
+            >
+              <UIcon
+                class="w-5 h-5"
+                name="i-simple-icons-github"
+                dynamic
+              />
+              {{ contentQuery.links[0].label }}
+            </UButton>
           </div>
           <p
             class="mt-4 text-lg text-gray-500 dark:text-gray-400"
@@ -45,3 +52,8 @@
     //console.log('query', contentQuery.body.children)
 
 </script>
+<style>
+.dark-mode body {
+  background-color: #091a28;
+}
+</style>

@@ -3,7 +3,7 @@
     class="font-sans"
   >
     <Header 
-      class="sticky top-0"
+      class="sticky top-0 backdrop-blur -mb-px s z-50 bg-white/75 dark:bg-[#101628]/75"
     />
     <div class="flex justify-center mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
       <div

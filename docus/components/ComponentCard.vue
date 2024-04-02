@@ -58,6 +58,7 @@
         :color="propsToSelect.style"
       />
     </div>
+    <CodeBlock />
   </div>
 </template>
 

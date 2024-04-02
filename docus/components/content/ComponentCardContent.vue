@@ -59,6 +59,7 @@
         :size="propsToSelect.size"
       />
     </div>
+    <CodeBlock />
   </div>
 </template>
 
