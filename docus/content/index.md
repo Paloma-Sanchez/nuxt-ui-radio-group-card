@@ -266,13 +266,14 @@ baseProps:
 
 ## Slots
 
-### `item`
+### `trailing`
 
-Use the #label slot to override the label of each option.
+Use the #trailing slot to override the radio icon of each card (only available on size "md").
 
+### `label`
 
+Use the #label slot to override the whole UI of each card.
 
-Use the #label slot to override the label of each option.
 
 ## Props
 
