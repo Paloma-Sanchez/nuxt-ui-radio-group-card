@@ -58,7 +58,15 @@
         :color="propsToSelect.style"
       />
     </div>
-    <CodeBlock />
+    <CodeBlock 
+      :disabled="propsToSelect.disabled"
+      :legend="propsToSelect.legend"
+      :required="propsToSelect.required"
+      :help="propsToSelect?.help"
+      :color="propsToSelect.style"
+    />
+    <p>{{ 'hello' }}</p>
+    {{ props?.props?.help }}
   </div>
 </template>
 
@@ -66,10 +74,6 @@
 
 
 const props = defineProps({
-  slug: {
-    type: String,
-    default: null
-  },
   padding: {
     type: Boolean,
     default: true
@@ -81,10 +85,6 @@ const props = defineProps({
   componentProps: {
     type: Object,
     default: () => ({})
-  },
-  code: {
-    type: String,
-    default: null
   },
   slots: {
     type: Object,
@@ -98,10 +98,6 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   },
-  excludedProps: {
-    type: Array,
-    default: () => []
-  },
   options: {
     type: Array as PropType<{ name: string; values: string[]; restriction: 'expected' | 'included' | 'excluded' | 'only' }[]>,
     default: () => []
@@ -110,10 +106,6 @@ const props = defineProps({
     type: String,
     default: 'bg-white dark:bg-gray-900'
   },
-  extraClass: {
-    type: String,
-    default: ''
-  },
   previewOnly: {
     type: Boolean,
     default: false
@@ -121,10 +113,6 @@ const props = defineProps({
   componentClass: {
     type: String,
     default: ''
-  },
-  ignoreVModel: {
-    type: Boolean,
-    default: false
   }
 })
 

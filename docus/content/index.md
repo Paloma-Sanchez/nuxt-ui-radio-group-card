@@ -48,13 +48,6 @@ componentProps:
           - '32GB'
           - '12 CPUs'
           - '1024 GB SSD disk'
-      - value: 'Education'
-        label: 'Education'
-        description:
-          - '6GB'
-          - '2 CPUs'
-          - '10 GB SSD disk'
-        disabled: true
 baseProps:
   modelValue: 'Startup'
 ---
@@ -99,13 +92,6 @@ componentProps:
           - '32GB'
           - '12 CPUs'
           - '1024 GB SSD disk'
-      - value: 'Education'
-        label: 'Education'
-        description:
-          - '6GB'
-          - '2 CPUs'
-          - '10 GB SSD disk'
-        disabled: true
 baseProps:
   modelValue: 'Business'
 ---
@@ -149,13 +135,6 @@ componentProps:
           - '32GB'
           - '12 CPUs'
           - '1024 GB SSD disk'
-      - value: 'Education'
-        label: 'Education'
-        description:
-          - '6GB'
-          - '2 CPUs'
-          - '10 GB SSD disk'
-        disabled: true
 baseProps:
   modelValue: 'Startup'
 ---
@@ -198,12 +177,6 @@ componentProps:
           - '32GB'
           - '12 CPUs'
           - '1024 GB SSD disk'
-      - value: 'Education'
-        label: 'Education'
-        description:
-          - '6GB'
-          - '2 CPUs'
-          - '10 GB SSD disk'
         disabled: true
 baseProps:
   modelValue: 'Startup'
@@ -245,13 +218,6 @@ componentProps:
           - '32GB'
           - '12 CPUs'
           - '1024 GB SSD disk'
-      - value: 'Education'
-        label: 'Education'
-        description:
-          - '6GB'
-          - '2 CPUs'
-          - '10 GB SSD disk'
-        disabled: true
 baseProps:
   modelValue: 'Startup'
 ---
@@ -293,13 +259,6 @@ componentProps:
           - '32GB'
           - '12 CPUs'
           - '1024 GB SSD disk'
-      - value: 'Education'
-        label: 'Education'
-        description:
-          - '6GB'
-          - '2 CPUs'
-          - '10 GB SSD disk'
-        disabled: true
 baseProps:
   modelValue: 'Startup'
 ---

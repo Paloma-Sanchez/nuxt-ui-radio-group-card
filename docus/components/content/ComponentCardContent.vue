@@ -59,7 +59,13 @@
         :size="propsToSelect.size"
       />
     </div>
-    <CodeBlock />
+    <CodeBlock 
+      :disabled="propsToSelect.disabled"
+      :legend="propsToSelect.legend"
+      :required="propsToSelect.required"
+      :help="propsToSelect?.help"
+      :color="propsToSelect.style"
+    />
   </div>
 </template>
 
@@ -123,10 +129,6 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  ignoreVModel: {
-    type: Boolean,
-    default: false
-  }
 })
 
 

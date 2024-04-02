@@ -1,5 +1,9 @@
 <template>
-    <div v-html="colorMode.value === 'dark'? codeDark : codeLight"></div>
+  <div 
+    v-if="colorMode.value"
+    v-html="colorMode.value === 'dark'? codeDark : codeLight"
+  >
+  </div>
 </template>
 <script setup>
 import MaterialTheme from 'shiki/themes/material-theme.mjs'
@@ -7,21 +11,65 @@ import MaterialThemeLighter from 'shiki/themes/material-theme-lighter.mjs'
 import MaterialThemePalenight from 'shiki/themes/material-theme-palenight.mjs'
 import { getHighlighter } from 'shiki'
 
+const props = defineProps({
+    disabled:{
+        type:Boolean,
+        default:false
+    },
+    legend:{
+        type:String,
+        default:''
+    },
+    required:{
+        type:Boolean,
+        default:false
+    },
+    help:{
+        type:String,
+        default:''
+    },
+    color:{
+        type:String,
+        default:''
+    }
+})
+
 const colorMode = useColorMode()
+console.log(colorMode.value)
+
+
+const code = computed(() => {
+    return ('<scrip setup lang="ts"> \n  const options = [{ ' + 
+'\n    value: \'startup\',\n    label: \'Startup\', \n    description:[\'12GB\', \'6 CPUs\', \'160 GB SSD disk\'],\n    icon:\'i-heroicons-trash\' \n  },\n' +
+'  { \n    value: \'business\',\n    label: \'Business\',\n    description:[\'16GB\', \'8 CPUs\', \'512 GB SSD disk\']\n  },\n' +
+'  { \n    value: \'enterprise\',\n    label: \'Enterprise\',\n    description:[\'32GB\', \'12 CPUs\', \'1024 GB SSD disk\']\n  },\n' +
+'\nconst selected = ref(\'startup\')' +
+'\n</scrip>\n<template>\n  <RadioGroupCard \n    v-model="selected"\n    :options="options"\n'+
+`  ${props.disabled?'  disabled=true\n':''}` +
+`  ${props.legend.length?`legend="${props.legend}"\n`:''}` +
+`${props.required?'    required=true\n':''}` +
+`${props.help?`    help="${props.help}"`:''}` +
+'\n  />\n</template>');
+});
 
 const highlighter = await getHighlighter({
   themes: ['nord'],
   langs: ['javascript'],
 })
 
-const codeLight = highlighter.codeToHtml ('<script setup lang="ts"> \n const options = [{', {
-  lang: 'javascript',
-  theme: MaterialThemeLighter
-})
+const codeLight = computed(() => {
+    return highlighter.codeToHtml (code.value, {
+        lang: 'javascript',
+        theme: MaterialThemeLighter
+    });
+});
 
-const codeDark = highlighter.codeToHtml ('<script setup lang="ts"> \n const options = [{', {
-  lang: 'javascript',
-  theme: MaterialThemePalenight
-})
+const codeDark = computed(() => {
+  return highlighter.codeToHtml (code.value, {
+    lang: 'javascript',
+    theme: MaterialThemePalenight
+  });
+});
 
+console.log('help', props?.help)
 </script>
