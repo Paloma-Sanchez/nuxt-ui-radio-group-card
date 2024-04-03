@@ -1,20 +1,31 @@
 <template>
-  <radio-group-card
-    v-model="selected"
-    :options="options"
-    :model-value="selected"
-    legend="helle wordl"
-    variant="outline"
-    color="violet"
-    :ui-radio="{background:{unchecked:'bg-white'},
-    }"
+  <div 
+    class="flex justify-center border border-b-0 border-gray-200 dark:border-gray-700 relative not-prose p-4 rounded-t-md" 
   >
-    <template #trailing="{ option }">
-      <div class="pl-4">
-        <p>{{' Selected' }}</p>
-      </div>
-    </template>
-  </radio-group-card>
+    <radio-group-card
+      v-model="selected"
+      :options="options"
+      :model-value="selected"
+      legend="helle wordl"
+      variant="ghost"
+      color="violet"
+      :ui-radio="{background:{unchecked:'bg-white'},
+      }"
+    >
+      <template #trailing="{ option }">
+        <div
+          class="pl-4"
+        >
+          <u-icon
+            name="i-heroicons-check-circle-16-solid"
+          />
+        </div>
+      </template>
+    </radio-group-card>
+  </div>
+  <code-lines
+    :code="code"
+  />
 </template>
 
 <script setup>
@@ -39,5 +50,11 @@ const options = [
 ];
 
 const selected = ref(options[0].value);
+
+const code = '<radio-group-card\n  v-model="selected"\n  :options="options"\n' +
+  '  variant="ghost"\n  color="orange"\n>\n' +
+  '  <template #trailing="{ option }">\n    <div class="pl-4">\n' +
+  '      <u-icon\n        name="i-heroicons-check-circle-16-solid"\n      />\n'+
+  '    </div>\n  </template>\n</radio-group-card>'
 
 </script>

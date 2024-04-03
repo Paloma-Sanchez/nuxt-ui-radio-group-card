@@ -5,20 +5,11 @@
       @change="onChange"
     />
     <ClientOnly>
-      <div 
-        v-if="colorMode.value"
-        v-html="computedCode"
-        class="-mt-6"
-      >
-      </div>
+      <CodeLines :code="code" />
     </ClientOnly>
   </div>
 </template>
 <script setup>
-import MaterialTheme from 'shiki/themes/material-theme.mjs'
-import MaterialThemeLighter from 'shiki/themes/material-theme-lighter.mjs'
-import MaterialThemePalenight from 'shiki/themes/material-theme-palenight.mjs'
-import { getHighlighter } from 'shiki'
 
 const selectedContent = ref('RadioCard')
 
@@ -35,8 +26,6 @@ function onChange (index) {
   selectedContent.value = item.label
   
 }
-
-const colorMode = useColorMode()
 
 const code = computed(() => {
   if (selectedContent.value === 'RadioCard') {
@@ -78,22 +67,4 @@ const code = computed(() => {
   }
 });
 
-const highlighter = await getHighlighter({
-  themes: ['nord'],
-  langs: ['javascript'],
-})
-
-const computedCode = computed(() => {
-    if(colorMode.value !== 'dark'){
-      return highlighter.codeToHtml (code.value, {
-        lang: 'javascript',
-        theme: MaterialThemeLighter
-      });
-    } else {
-      return highlighter.codeToHtml (code.value, {
-        lang: 'javascript',
-        theme: MaterialThemePalenight
-      });
-    }
-});
 </script>
