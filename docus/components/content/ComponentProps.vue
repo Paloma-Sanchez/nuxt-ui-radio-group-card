@@ -28,6 +28,10 @@ const props = defineProps({
     type: Object,
     default:(() => {})
   },
+  modelValue: {
+    type: Object,
+    default:(() => {})
+  },
   options: {
     type: Object,
     default:(() => {})
@@ -39,7 +43,15 @@ const props = defineProps({
   size: {
     type: Object,
     default:(() => {})
-  }
+  },
+  ui:{
+    type: Object,
+    default:(() => {})
+  },
+  uiRadio:{
+    type: Object,
+    default:(() => {})
+  },
 })
 
 ///missing props: ui, radioUi, modelvalue

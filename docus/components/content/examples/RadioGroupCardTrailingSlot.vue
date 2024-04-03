@@ -9,8 +9,7 @@
       legend="helle wordl"
       variant="ghost"
       color="sky"
-      :ui-radio="{background:{unchecked:'bg-white'},
-      }"
+      :ui="{label:'text-lg'}"
     >
       <template #trailing="{ option }">
         <div

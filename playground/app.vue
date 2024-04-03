@@ -21,8 +21,7 @@
       legend="helle wordl"
       variant="outline"
       color="violet"
-      :ui-radio="{background:{unchecked:'bg-white'},
-      }"
+      :ui-radio="{label:'text-lg'}"
     />
     <radioGroupCard
       v-model="selected"
@@ -36,7 +35,7 @@
     >
       <template #trailing="{ option }">
         <div class="pl-4">
-          <p>{{' Selected' }}</p>
+          <p>{{ 'Selected' }}</p>
         </div>
       </template>
     </radioGroupCard>

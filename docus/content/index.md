@@ -9,49 +9,7 @@ links:
 
 ## Usage
 
-Use a **v-model** to make the RadioGroup reactive. 
-
-
-### Legend
-
-Use the **legend** prop to add a legend on the top of the RadioGroup.
-
-::component-card-content
----
-props:
-  name: 'legend'
-  type: ''
-  legend: 'Legend'
-  disabled: false
-  required: false
-  help: ''
-  slots: ''
-  options: null
-componentProps: 
-  options: 
-      - value: 'Startup'
-        label: 'Startup'
-        description:
-          - '12GB'
-          - '6 CPUs'
-          - '160 GB SSD disk'
-        icon: 'i-heroicons-trash'
-      - value: 'Business'
-        label: 'Business'
-        description:
-          - '16GB'
-          - '8 CPUs'
-          - '512 GB SSD disk'
-      - value: 'Enterprise'
-        label: 'Enterprise'
-        description:
-          - '32GB'
-          - '12 CPUs'
-          - '1024 GB SSD disk'
-baseProps:
-  modelValue: 'Startup'
----
-::
+Use a **v-model** to make the RadioGroup reactive.  
 
 ### Size
 
@@ -70,7 +28,7 @@ props:
   help: ''
   slots: ''
   options: 
-    ['xs', 'sm', 'md']
+    ['md', 'sm', 'xs']
 componentProps: 
   options: 
       - value: 'Startup'
@@ -99,7 +57,9 @@ baseProps:
 
 ### Style
 
-Use the **color** prop to change the style of the cards in the RadioGroup.
+Use the **color** and **variant** props to change the visual style of the cards in the RadioGroup.
+  
+To adjust any of the UI elements: customize the ensemble's UI with the **ui** prop or the cards' UI with the **ui-radio** prop
 
 ::component-card-content
 ---
@@ -118,6 +78,47 @@ props:
     ['primary', 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyen', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']
   extraOptions:
     ['solid', 'outline', 'ghost']
+componentProps: 
+  options: 
+      - value: 'Startup'
+        label: 'Startup'
+        description:
+          - '12GB'
+          - '6 CPUs'
+          - '160 GB SSD disk'
+        icon: 'i-heroicons-trash'
+      - value: 'Business'
+        label: 'Business'
+        description:
+          - '16GB'
+          - '8 CPUs'
+          - '512 GB SSD disk'
+      - value: 'Enterprise'
+        label: 'Enterprise'
+        description:
+          - '32GB'
+          - '12 CPUs'
+          - '1024 GB SSD disk'
+baseProps:
+  modelValue: 'Startup'
+---
+::
+
+### Legend
+
+Use the **legend** prop to add a legend on the top of the RadioGroup.
+
+::component-card-content
+---
+props:
+  name: 'legend'
+  type: ''
+  legend: 'Legend'
+  disabled: false
+  required: false
+  help: ''
+  slots: ''
+  options: null
 componentProps: 
   options: 
       - value: 'Startup'
@@ -299,6 +300,10 @@ help:
 legend:
   name: 'legend'
   type: 'string'
+modelValue:
+  name: 'modelValue'
+  default: null
+  type: string | number | boolean 
 options:
   name: 'options'
   default: '[]'
@@ -311,6 +316,14 @@ size:
   name: 'size'
   default: 'md'
   type: 'string'
+ui:
+  name: 'ui'
+  default: '{}'
+  type: 'object {}'
+ui-radio:
+  name: 'ui-radio'
+  default: '{}'
+  type: 'object {}'
 ---
 ::
 
