@@ -25,10 +25,7 @@ export default {
       variants: ['first-of-type']
     },
     {
-      pattern: /ml-(4)/,
-    },
-    {
-      pattern: /mb-(1|2)/,
+      pattern: /m(l|b)-(1|2|4)/,
     },
     {
       pattern: /bg-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(50|400|500)/,

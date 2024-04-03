@@ -6,7 +6,6 @@
       v-model="selected"
       :options="options"
       :model-value="selected"
-      legend="helle wordl"
       variant="ghost"
       color="sky"
       :ui="{label:'text-lg'}"

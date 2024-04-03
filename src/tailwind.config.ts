@@ -1,17 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./app.vue",
-    "./error.vue",
-  ],
+  content: ["../docus/**/*.{html,vue,ts,js}"],
   theme: {
+    fontFamily: {
+      'sans': ['"DM Sans"', '"DM Sans fallback:Arial"', 'ui-sans-serif','system-ui','sans-serif']
+    },
     extend: {},
   },
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
   safelist: [
+    {
+      pattern: /space-(x|y)-2/
+    },
+    {
+      pattern: /p-(5)/
+    },
     {
       pattern: /pr-(1|6)/
     },
@@ -20,7 +25,7 @@ export default {
       variants: ['first-of-type']
     },
     {
-      pattern: /ml-(4)/,
+      pattern: /m(l|b)-(1|2|4)/,
     },
     {
       pattern: /bg-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|primary)-(50|400|500)/,
@@ -59,6 +64,5 @@ export default {
       variants: ['peer-disabled']
     }
   ],
-  plugins: [],
 }
 
