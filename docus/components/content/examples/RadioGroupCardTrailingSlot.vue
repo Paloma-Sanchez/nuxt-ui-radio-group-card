@@ -8,7 +8,7 @@
       :model-value="selected"
       legend="helle wordl"
       variant="ghost"
-      color="violet"
+      color="sky"
       :ui-radio="{background:{unchecked:'bg-white'},
       }"
     >
@@ -52,7 +52,7 @@ const options = [
 const selected = ref(options[0].value);
 
 const code = '<radio-group-card\n  v-model="selected"\n  :options="options"\n' +
-  '  variant="ghost"\n  color="orange"\n>\n' +
+  '  variant="ghost"\n  color="sky"\n>\n' +
   '  <template #trailing="{ option }">\n    <div class="pl-4">\n' +
   '      <u-icon\n        name="i-heroicons-check-circle-16-solid"\n      />\n'+
   '    </div>\n  </template>\n</radio-group-card>'
