@@ -7,9 +7,9 @@ export default {
   container:{
     xs:'space-x-2 w-max flex',
     sm:'space-x-2 w-max flex',
-    md:'space-y-2 w-max',
+    md:'space-y-2 mt-2 w-max',
   },
-  legend: 'text-sm font-medium text-gray-700  mb-1',
+  legend: 'text-sm font-medium dark:text-gray-300 text-gray-700  mb-1',
   default: {
     color: 'primary',
     size: 'md',
