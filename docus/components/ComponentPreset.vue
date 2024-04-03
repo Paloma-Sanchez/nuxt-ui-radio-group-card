@@ -58,11 +58,11 @@ const code = computed(() => {
   } else {
     return (
       '{\n  wrapper: {\n    xs:\'\',\n    sm:\'\',\n    md:\'flex m-2\',\n  },' +
-      '  container:{\n    xs:\'space-x-2 w-max flex\',\n    sm:\'space-x-2 w-max flex\',\n    md:\'space-y-2 w-max\',\n  },\n' +
-      '  legend: \'text-sm font-medium text-gray-700  mb-1\',\n' +
+      '  container:{\n    xs:\'space-x-2 w-max flex\',\n    sm:\'space-x-2 w-max flex\',\n    md:\'space-y-2 mt-2 w-max\',\n  },\n' +
+      '  legend: \'text-sm font-medium dark:text-gray-300 text-gray-700  mb-1\',\n' +
       '  default: {\n    color: \'primary\',\n    size: \'md\',\n    variant:\'solid\'\n    },\n' +
       '  required: \'text-sm text-red-500 dark:text-red-400\',\n' +
-      '  help: \'text-sm text-gray-500 dark:text-gray-400 mb-2\'\n  }'
+      '  help: \'text-sm text-gray-500 dark:text-gray-400 mb-2\'\n}'
     )
   }
 });
