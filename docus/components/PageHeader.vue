@@ -18,7 +18,7 @@
             class="flex flex-col lg:flex-row lg:items-center lg:justify-between"
           >
             <h1
-              class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white tracking-tight"
+              class="text-3xl sm:text-4xl font-bold tracking-tight"
             >
               {{ contentQuery?.title }}
             </h1>
@@ -37,7 +37,7 @@
             </UButton>
           </div>
           <p
-            class="mt-4 text-lg text-gray-500 dark:text-gray-400"
+            class="mt-4 text-lg font-extralight"
           >
             {{ contentQuery.description }}
           </p>

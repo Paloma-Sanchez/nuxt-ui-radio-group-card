@@ -1,8 +1,8 @@
 export default {
   wrapper: {
     xs:'',
-    sm:' ',
-    md:'w-[448px] relative flex items-start',
+    sm:'',
+    md:'flex m-2',
   },
   container:{
     xs:'space-x-2 w-max flex',

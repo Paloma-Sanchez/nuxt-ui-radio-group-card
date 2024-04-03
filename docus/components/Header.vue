@@ -8,13 +8,18 @@
     <div
       class="flex justify-center h-[65px] items-center"
     >
-      <div class="w-[1280px] flex justify-between px-5">
+      <div class="w-[1280px] flex justify-between items-center px-5">
         <NuxtLink 
           to="/" 
-          class="flex items-end gap-2 font-bold text-xl text-gray-900 dark:text-white" 
+          class="flex items-baseline gap-2 font-bold text-xl prose dark:prose-invert" 
           aria-label="Nuxt UI"
         >
-          <p>My logo</p>
+          <p>RadioCardGroup </p>
+          <p
+            class="text-primary-400"
+          >
+            UI
+          </p>
         </NuxtLink>
         <div>
           <ColorModeButton />

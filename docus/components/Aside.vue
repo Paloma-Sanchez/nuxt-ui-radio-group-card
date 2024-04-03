@@ -17,10 +17,10 @@
           :to="link.to"
           class="block text-sm/6 truncate text-gray-500 dark:text-gray-400  h-6"
           :class="{
-            'text-primary-400': currentRoute === link.to,
-            'dark:text-primary-400': currentRoute === link.to,
-            'hover:text-gray-700': currentRoute !== link.to,
-            'dark:hover:text-gray-200': currentRoute !== link.to,
+            'text-primary-400': currentRoute === link?.to,
+            'dark:text-primary-400': currentRoute === link?.to,
+            'hover:text-gray-700': currentRoute !== link?.to,
+            'dark:hover:text-gray-200': currentRoute !== link?.to,
           }" 
         >
           {{ link.label.charAt(0).toUpperCase() + link.label.slice(1) }}
@@ -51,7 +51,7 @@
 </template>
 <script setup>
 const router = useRouter();
-const currentRoute = computed(()=>router.currentRoute.value["fullPath"])
+const currentRoute = computed(() => router?.currentRoute?.value["fullPath"])
 const contentQuery = await queryContent().where({ title: 'Radio Card Group' }).findOne()
 const bodyChildren = contentQuery.body.children
 

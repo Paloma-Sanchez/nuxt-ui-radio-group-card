@@ -46,6 +46,7 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       'DM Sans': '300..700',
+      'JetBrains Mono':true
     }
   }
 })

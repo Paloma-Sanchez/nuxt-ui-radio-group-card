@@ -1,6 +1,6 @@
 <template>
   <div :class="wrapperClass">
-    <div class="mx-auto w-max max-w-md">
+    <div class="mx-auto w-max ">
       <legend 
         v-if="legend || $slots.legend" 
         :class="ui.legend"
@@ -43,7 +43,7 @@
               v-bind="{ option }"  
             />
           </template>
-          <template #checkIcon>
+          <template #trailing>
             <slot 
               name="trailing" 
               v-bind="{ option }"

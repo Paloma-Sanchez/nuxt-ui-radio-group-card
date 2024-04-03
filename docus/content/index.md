@@ -9,12 +9,12 @@ links:
 
 ## Usage
 
-Use a `v-model` to make the RadioGroup reactive. 
+Use a **v-model** to make the RadioGroup reactive. 
 
 
 ### Legend
 
-Use the `legend` prop to add a legend on the top of the RadioGroup.
+Use the **legend** prop to add a legend on the top of the RadioGroup.
 
 ::component-card-content
 ---
@@ -55,7 +55,7 @@ baseProps:
 
 ### Size
 
-Use the `size` prop to change the size of the cards in the RadioGroup.
+Use the **size** prop to change the size of the cards in the RadioGroup.
 
 ::component-card-content
 ---
@@ -99,21 +99,25 @@ baseProps:
 
 ### Style
 
-Use the `color` prop to change the style of the cards in the RadioGroup.
+Use the **color** prop to change the style of the cards in the RadioGroup.
 
 ::component-card-content
 ---
 props:
   name: 'style'
+  extraName: 'variant'
   type: ''
   legend: ''
   style: 'primary'
+  variant: 'solid'
   disabled: false
   required: false
   help: ''
   slots: ''
   options: 
     [' primary', 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyen', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']
+  extraOptions:
+    ['solid', 'outline', 'ghost']
 componentProps: 
   options: 
       - value: 'Startup'
@@ -142,8 +146,8 @@ baseProps:
 
 ### Disabled
 
-Use the `disabled` prop to disable the whole RadioGroup. 
-Alternatively, you can pass `disabled` prop to each individual RadioCard:
+Use the **disabled** prop to disable the whole RadioGroup.  
+Alternatively, you can pass **disabled** prop to each individual RadioCard:
 
 ::component-card-content
 ---
@@ -185,7 +189,7 @@ baseProps:
 
 ### Required
 
-Use the `required` prop to display a red star next to the legend of the RadioGroup.
+Use the **required** prop to display a red star next to the legend of the RadioGroup.
 ::component-card-content
 ---
 props:
@@ -225,7 +229,7 @@ baseProps:
 
 ### Help
 
-Use the `help` prop to display some text under the RadioGroup legend.
+Use the **help** prop to display some text under the RadioGroup legend.
 
 ::component-card-content
 ---
@@ -266,16 +270,49 @@ baseProps:
 
 ## Slots
 
-### `trailing`
+### **trailing**
 
 Use the #trailing slot to override the radio icon of each card (only available on size "md").
+::radio-group-card-trailing-slot
+::
 
-### `label`
+### **label**
 
 Use the #label slot to override the whole UI of each card.
-
+::radio-group-card-label-slot
+::
 
 ## Props
+::component-props
+---
+color:
+  name: 'color'
+  default: 'primary'
+  type: 'string'
+disabled: 
+  name: 'disabled'
+  default: 'false'
+  type: boolean
+help: 
+  name: 'help'
+  type: 'string'
+legend:
+  name: 'legend'
+  type: 'string'
+options:
+  name: 'options'
+  default: '[]'
+  type: array[]
+required: 
+  name: 'required'
+  default: 'false'
+  type: boolean
+size:
+  name: 'size'
+  default: 'md'
+  type: 'string'
+---
+::
 
 
 ## Config

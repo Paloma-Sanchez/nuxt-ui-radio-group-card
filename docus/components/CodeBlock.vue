@@ -1,9 +1,12 @@
 <template>
-  <div 
-    v-if="colorMode.value"
-    v-html="colorMode.value === 'dark'? codeDark : codeLight"
-  >
-  </div>
+  <ClientOnly>
+    <div 
+      v-if="colorMode.value"
+      v-html="computedCode"
+      class="-mt-6"
+    >
+    </div>
+  </ClientOnly>
 </template>
 <script setup>
 import MaterialTheme from 'shiki/themes/material-theme.mjs'
@@ -12,6 +15,10 @@ import MaterialThemePalenight from 'shiki/themes/material-theme-palenight.mjs'
 import { getHighlighter } from 'shiki'
 
 const props = defineProps({
+    name:{
+        type:String,
+        default:""
+    },
     disabled:{
         type:Boolean,
         default:false
@@ -35,21 +42,20 @@ const props = defineProps({
 })
 
 const colorMode = useColorMode()
-console.log(colorMode.value)
-
 
 const code = computed(() => {
     return ('<scrip setup lang="ts"> \n  const options = [{ ' + 
-'\n    value: \'startup\',\n    label: \'Startup\', \n    description:[\'12GB\', \'6 CPUs\', \'160 GB SSD disk\'],\n    icon:\'i-heroicons-trash\' \n  },\n' +
-'  { \n    value: \'business\',\n    label: \'Business\',\n    description:[\'16GB\', \'8 CPUs\', \'512 GB SSD disk\']\n  },\n' +
-'  { \n    value: \'enterprise\',\n    label: \'Enterprise\',\n    description:[\'32GB\', \'12 CPUs\', \'1024 GB SSD disk\']\n  },\n' +
-'\nconst selected = ref(\'startup\')' +
-'\n</scrip>\n<template>\n  <RadioGroupCard \n    v-model="selected"\n    :options="options"\n'+
-`  ${props.disabled?'  disabled=true\n':''}` +
-`  ${props.legend.length?`legend="${props.legend}"\n`:''}` +
-`${props.required?'    required=true\n':''}` +
-`${props.help?`    help="${props.help}"`:''}` +
-'\n  />\n</template>');
+        '\n    value: \'startup\',\n    label: \'Startup\', \n    description:[\'12GB\', \'6 CPUs\', \'160 GB SSD disk\'],\n    icon:\'i-heroicons-trash\' \n  },\n' +
+        '  { \n    value: \'business\',\n    label: \'Business\',\n    description:[\'16GB\', \'8 CPUs\', \'512 GB SSD disk\']\n  },\n' +
+        `  { \n    value: 'enterprise',\n    label: 'Enterprise',\n    description:['32GB', '12 CPUs', '1024 GB SSD disk']\n  ${props.name === 'disabled'?'  disabled: true\n  ':''}},\n` +
+        '\n  const selected = ref(\'startup\')' +
+        '\n</scrip>\n<template>\n  <RadioGroupCard \n    v-model="selected"\n    :options="options"\n'+
+        `  ${props.disabled?'  disabled=true\n':''}` +
+        `  ${props.legend.length?`legend="${props.legend}"\n`:''}` +
+        `  ${props.required?'  required=true\n':''}` +
+        `  ${props.help?`help="${props.help}"`:''}` +
+        '\n  />\n</template>'
+    );
 });
 
 const highlighter = await getHighlighter({
@@ -57,11 +63,18 @@ const highlighter = await getHighlighter({
   langs: ['javascript'],
 })
 
-const codeLight = computed(() => {
-    return highlighter.codeToHtml (code.value, {
+const computedCode = computed(() => {
+    if(colorMode.value !== 'dark'){
+      return highlighter.codeToHtml (code.value, {
         lang: 'javascript',
         theme: MaterialThemeLighter
-    });
+      });
+    } else {
+      return highlighter.codeToHtml (code.value, {
+        lang: 'javascript',
+        theme: MaterialThemePalenight
+      });
+    }
 });
 
 const codeDark = computed(() => {
@@ -71,5 +84,4 @@ const codeDark = computed(() => {
   });
 });
 
-console.log('help', props?.help)
 </script>

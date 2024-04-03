@@ -42,6 +42,28 @@
           @update:model-value="val => propsToSelect[propsToSelect.name] = propsToSelect.type === 'number' ? Number(val) : val"
         />
       </div>
+      <div 
+        v-if="propsToSelect.extraOptions?.length && propsToSelect.name !== 'legend'"
+        class="flex flex-col gap-0.5 justify-between py-1.5 font-medium bg-gray-50 dark:bg-gray-800 border-r border-r-gray-200 dark:border-r-gray-700"
+      >
+        <label 
+          :for="`prop-${propsToSelect.extraName}`" 
+          class="block text-xs px-2.5 font-medium text-gray-400 dark:text-gray-500 -my-px"
+        >
+          {{ propsToSelect.extraName }}
+        </label>
+        <USelectMenu
+          v-model="propsToSelect[propsToSelect.extraName]"
+          :options="propsToSelect.extraOptions"
+          :name="`prop-${propsToSelect.extraName}`"
+          variant="none"
+          class="inline-flex"
+          :ui-menu="{ width: 'w-32 !-mt-px', rounded: 'rounded-t-none' }"
+          select-class="py-0"
+          tabindex="-1"
+          :popper="{ strategy: 'fixed', placement: 'bottom-start' }"
+        />
+      </div>
     </div>
     <div 
       class="flex justify-center border border-b-0 border-gray-200 dark:border-gray-700 relative not-prose" 
@@ -57,9 +79,11 @@
         :help="propsToSelect.help"
         :color="propsToSelect.style"
         :size="propsToSelect.size"
+        :variant="propsToSelect.variant"
       />
     </div>
     <CodeBlock 
+      :name="propsToSelect.name"
       :disabled="propsToSelect.disabled"
       :legend="propsToSelect.legend"
       :required="propsToSelect.required"

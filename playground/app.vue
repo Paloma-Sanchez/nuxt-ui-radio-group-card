@@ -24,6 +24,22 @@
       :ui-radio="{background:{unchecked:'bg-white'},
       }"
     />
+    <radioGroupCard
+      v-model="selected"
+      :options="options"
+      :model-value="selected"
+      legend="helle wordl"
+      variant="outline"
+      color="violet"
+      :ui-radio="{background:{unchecked:'bg-white'},
+      }"
+    >
+      <template #trailing="{ option }">
+        <div class="pl-4">
+          <p>{{' Selected' }}</p>
+        </div>
+      </template>
+    </radioGroupCard>
   </div> 
  
   <radioGroupCard
@@ -44,7 +60,7 @@
     bord-only
     variant="outline"
   >
-    <template #checkIcon="{ option }">
+    <template #tailing="{ option }">
       <p class="italic">
         {{ option.label }}
       </p>

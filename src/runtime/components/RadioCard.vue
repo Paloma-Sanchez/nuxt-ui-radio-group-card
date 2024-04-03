@@ -19,6 +19,7 @@
       :for="genId"
     >
       <slot
+        v-bind="{ option }"
         name="label"
       >
         <div 

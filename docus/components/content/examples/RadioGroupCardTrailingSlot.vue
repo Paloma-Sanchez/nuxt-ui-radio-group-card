@@ -3,9 +3,18 @@
     v-model="selected"
     :options="options"
     :model-value="selected"
-    legend="Legend"
-    class="w-full" 
-  />
+    legend="helle wordl"
+    variant="outline"
+    color="violet"
+    :ui-radio="{background:{unchecked:'bg-white'},
+    }"
+  >
+    <template #trailing="{ option }">
+      <div class="pl-4">
+        <p>{{' Selected' }}</p>
+      </div>
+    </template>
+  </radio-group-card>
 </template>
 
 <script setup>
@@ -26,12 +35,6 @@ const options = [
     value: 'Enterprise',
     label: 'Enterprise',
     description:['32GB', '12 CPUs', '1024 GB SSD disk'],
-  },
-  {
-    value: 'Education',
-    label: 'Education',
-    //description:['6GB', '3CPUs', '80 GB SSD disk'],
-    disabled: true
   },
 ];
 
