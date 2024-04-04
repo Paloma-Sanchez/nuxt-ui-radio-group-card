@@ -22,41 +22,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Install NodeJS
-        uses: actions/setup-node@v4
+      - name: R- name: Install NodeJS
+        uses: actions/setup-node@v1
         with:
           node-version: 20.x
           registry-url: https://registry.npmjs.org
 
       - name: Verify versions
-        run: node --version && npm --version && node -p process.versions.v8
-
-      - name: Change directory
-        run: cd docus
+        run: node --version && npm --version && node -p process.versions.v8un a one-line script
         
-      #- name: Build package
-      #  run: npm run build
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Install nuxt content 
-        run: npx nuxi@latest module add content
-
-      - name: Build
-        run: npx nuxi generate docus  # Your build command
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./output  
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
-    
