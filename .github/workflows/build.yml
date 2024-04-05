@@ -42,8 +42,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Install nuxt content 
-        run: npx nuxi@latest module add content
+      - name: Install dependencies
+        run: |
+          npx nuxi@latest module add content
+          npm i nuxt-ui-radio-gp-card
 
       - name: Build
         run: npx nuxi generate docus  # Your build command
