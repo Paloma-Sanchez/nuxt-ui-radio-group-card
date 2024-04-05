@@ -34,7 +34,7 @@ jobs:
       - name: Verify versions
         run: node --version && npm --version && node -p process.versions.v8
 
-       - name: Change directory
+      - name: Change directory
         run: cd docus
         
       #- name: Build package
