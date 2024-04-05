@@ -42,6 +42,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Install nuxt content 
+        run: npx nuxi@latest module add content
+
       - name: Build
         run: npx nuxi generate docus  # Your build command
 
