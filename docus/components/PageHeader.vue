@@ -49,7 +49,6 @@
 </template>
 <script setup>
   const contentQuery = await queryContent().where({ title: 'Radio Card Group' }).findOne()
-    //console.log('query', contentQuery.body.children)
 
 </script>
 <style>
