@@ -47,7 +47,8 @@ jobs:
         with:
           # location of the coverage artifacts
           path: "./coverage"
-  
+
+  # This workflow contains a single job called "deploy"
   deploy:
     # Add a dependency to the build job
     needs: build
