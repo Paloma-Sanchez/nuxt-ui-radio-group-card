@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     'nuxt-ui-radio-gp-card',
     '@nuxtjs/color-mode',
-    'nuxt-svgo',
+    // 'nuxt-svgo',
     //'@nuxtjs/sitemap',
     '@tailwindcss/typography',
     '@nuxtjs/google-fonts'
