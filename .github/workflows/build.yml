@@ -28,7 +28,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 18.x
           registry-url: https://registry.npmjs.org
 
       - name: Verify versions
@@ -44,7 +44,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npx nuxi@latest module add content
+          npm i @nuxt/content
           npm i nuxt-ui-radio-gp-card
 
       - name: Build
