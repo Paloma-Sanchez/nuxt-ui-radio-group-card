@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     'nuxt-ui-radio-gp-card',
     '@nuxtjs/color-mode',
     'nuxt-svgo',
-    '@nuxtjs/sitemap',
+    //'@nuxtjs/sitemap',
     '@tailwindcss/typography',
     '@nuxtjs/google-fonts'
   ],
@@ -49,7 +49,5 @@ export default defineNuxtConfig({
       'JetBrains Mono':true
     }
   },
-  site: {
-    url: 'localhost:3000',
-  },
+
 })
