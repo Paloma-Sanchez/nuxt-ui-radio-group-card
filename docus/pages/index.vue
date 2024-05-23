@@ -8,7 +8,6 @@
         <div class="lg:col-span-9 prose dark:prose-invert">
           <PageHeader />
           <div class="prose dark:prose-invert">
-            <ContentDoc />
           </div>
           <ComponentPreset />
         </div>
