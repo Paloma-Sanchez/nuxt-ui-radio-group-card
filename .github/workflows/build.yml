@@ -30,6 +30,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Confirm directory
+        run: |
+          pwd
+          ls
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
