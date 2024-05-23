@@ -33,7 +33,7 @@ jobs:
       - name: Confirm directory
         run: |
           cd ..
-          pw
+          pwd
           ls
       - name: list files on directory
         run: |
