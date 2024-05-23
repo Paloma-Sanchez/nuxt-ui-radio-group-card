@@ -83,8 +83,11 @@ jobs:
         working-directory: docus
       - name: Static HTML export with Nuxt
         run: npx nuxi generate docus
+        working-directory: docus
       - name: Change directory
         run: |
+          cd docus
+          pwd
           cd docus
           pwd
           ls
