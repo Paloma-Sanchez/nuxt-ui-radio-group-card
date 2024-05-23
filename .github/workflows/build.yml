@@ -58,7 +58,7 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Change directory
         run: |
-          cd docus
+          cd docs
           pwd
           ls
       - name: Setup Pages
@@ -80,13 +80,13 @@ jobs:
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-        working-directory: docus
+        working-directory: docs
       - name: Show directory
         run: |
           pwd
           ls
       - name: Static HTML export with Nuxt
-        run: npx nuxi generate docus
+        run: npx nuxi generate docs
         # working-directory: docus
       - name: Show directory
         run: |
@@ -95,7 +95,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docus/.output/public
+          path: docs/.output/public
 
   # Deployment job
   deploy:
