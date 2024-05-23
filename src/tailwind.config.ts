@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["../docus/**/*.{html,vue,ts,js}"],
+  content: ["./**/*.{html,vue,ts,js}"],
   theme: {
     fontFamily: {
       'sans': ['"DM Sans"', '"DM Sans fallback:Arial"', 'ui-sans-serif','system-ui','sans-serif']
