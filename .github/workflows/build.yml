@@ -33,8 +33,7 @@ jobs:
       - name: Confirm directory
         run: |
           pwd
-          ls
-        working-directory: docus
+
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
