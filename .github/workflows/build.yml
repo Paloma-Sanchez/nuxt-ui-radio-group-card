@@ -34,6 +34,9 @@ jobs:
         run: |
           pwd
           ls
+      - name: list files on directory
+        run: |
+          ls
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
