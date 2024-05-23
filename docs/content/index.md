@@ -1,9 +1,16 @@
-# Nuxt Content
-
-This page corresponds to the `/` route of your website. You can delete it or create another file in the `content/` directory.
-
-Try to navigate to [/about](/about). These 2 pages are rendered by the `pages/[...slug].vue` component.
-
+---
+title: Radio Card Group 
+description: Display a set of radio buttons.
+links:
+  - label: GitHub
+    icon: i-simple-icons-github
+    to: https://github.com/Paloma-Sanchez/nuxt-ui-radio-group-card
 ---
 
-Look at the [Content documentation](https://content.nuxtjs.org/) to learn more.
+## Usage
+
+Use a **v-model** to make the RadioGroup reactive.  
+
+### Size
+
+Use the **size** prop to change the size of the cards in the RadioGroup.
