@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       concurrency: 1,
+      failOnError: false, 
     },
   },
   postcss: {
