@@ -62,8 +62,7 @@ const code = computed(() => {
     );
 });
 
-const computedCode = code.value
-/*
+
 const highlighter = await getHighlighter({
   themes: ['nord'],
   langs: ['javascript'],
@@ -82,5 +81,5 @@ const computedCode = computed(() => {
       });
     }
 });
-*/
+
 </script>
