@@ -88,13 +88,14 @@ jobs:
         run: |
           cd docus
           pwd
+          ls
           cd docus
           pwd
           ls
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docus/.output/public
+          path: docus/docus/.output/public
 
   # Deployment job
   deploy:
