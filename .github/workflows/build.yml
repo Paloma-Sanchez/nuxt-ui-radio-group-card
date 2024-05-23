@@ -82,7 +82,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: docus
       - name: Static HTML export with Nuxt
-        run: npx nuxi generate docus
+        run: npx nuxi generate 
         working-directory: docus
       - name: Change directory
         run: |
