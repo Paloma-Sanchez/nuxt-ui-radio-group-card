@@ -12,8 +12,8 @@
     "@nuxt/kit": "npm:@nuxt/kit-nightly@latest",
     "@nuxt/ui": "^2.14.2",
     "@tailwindcss/typography": "^0.5.12",
-    "nuxt": "^3.10.3",
-    "nuxt-ui-radio-gp-card": "^0.0.16"
+    "nuxt": "^3.11.2",
+    "nuxt-ui-radio-gp-card": "0.0.16"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.3.3",
