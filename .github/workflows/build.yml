@@ -32,7 +32,8 @@ jobs:
     steps:
       - name: Confirm directory
         run: |
-          pwd
+          cd ..
+          pw
           ls
       - name: list files on directory
         run: |
