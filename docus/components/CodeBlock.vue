@@ -1,11 +1,16 @@
 <template>
-  <ClientOnly>
+  <ClientOnly fallback-tag="div">
     <div 
       v-if="colorMode.value"
       v-html="computedCode"
       class="-mt-6"
     >
     </div>
+    <template #fallback>
+      <div class="w-40 h-8">
+        <p>loading code</p>
+      </div>
+    </template>
   </ClientOnly>
 </template>
 <script setup>

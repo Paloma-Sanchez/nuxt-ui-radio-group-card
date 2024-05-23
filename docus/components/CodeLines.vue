@@ -1,15 +1,20 @@
 <template>
-    <ClientOnly>
-      <div 
-        v-if="colorMode.value"
-        v-html="computedCode"
-        class="-mt-6"
-      >
+  <ClientOnly 
+    fallback-tag="div"
+  >
+    <div 
+      class="-mt-6"
+      v-html="computedCode"
+    >
+    </div>
+    <template #fallback>
+      <div class="w-40 h-8">
+        <p>loading code</p>
       </div>
-    </ClientOnly>
-  </template>
+    </template>
+  </ClientOnly>
+</template>
   <script setup>
-import MaterialTheme from 'shiki/themes/material-theme.mjs'
 import MaterialThemeLighter from 'shiki/themes/material-theme-lighter.mjs'
 import MaterialThemePalenight from 'shiki/themes/material-theme-palenight.mjs'
 import { getHighlighter } from 'shiki'
