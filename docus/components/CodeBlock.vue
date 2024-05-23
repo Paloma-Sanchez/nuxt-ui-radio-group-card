@@ -1,7 +1,6 @@
 <template>
   <ClientOnly fallback-tag="div">
     <div 
-      v-if="colorMode.value"
       v-html="computedCode"
       class="-mt-6"
     >
@@ -63,6 +62,8 @@ const code = computed(() => {
     );
 });
 
+const computedCode = code.value
+/*
 const highlighter = await getHighlighter({
   themes: ['nord'],
   langs: ['javascript'],
@@ -81,12 +82,5 @@ const computedCode = computed(() => {
       });
     }
 });
-
-const codeDark = computed(() => {
-  return highlighter.codeToHtml (code.value, {
-    lang: 'javascript',
-    theme: MaterialThemePalenight
-  });
-});
-
+*/
 </script>
