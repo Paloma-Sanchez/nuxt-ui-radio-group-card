@@ -7,11 +7,15 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ['@nuxt/content', '@nuxtjs/color-mode', "@nuxt/ui", "@nuxtjs/google-fonts"],
+  modules: ['@nuxt/content', '@nuxtjs/color-mode', "@nuxt/ui", "@nuxtjs/google-fonts", ],
   googleFonts: {
     families: {
       'DM Sans': '300..700',
       'JetBrains Mono':true
     }
+  },
+  colorMode: {
+    preference: 'light',
+    classSuffix: '',
   },
 })

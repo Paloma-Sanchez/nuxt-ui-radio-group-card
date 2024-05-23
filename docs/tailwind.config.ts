@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
@@ -9,8 +10,13 @@ export default {
     "./error.vue",
   ],
   theme: {
+    fontFamily: {
+      'sans': ['"DM Sans"', '"DM Sans fallback:Arial"', 'ui-sans-serif','system-ui','sans-serif']
+    },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }
 
