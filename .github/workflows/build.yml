@@ -34,7 +34,7 @@ jobs:
         run: |
           pwd
           ls
-        working-directory: ./docus
+        working-directory: docus
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
@@ -81,10 +81,10 @@ jobs:
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-        working-directory: ./docus
+        working-directory: docus
       - name: Static HTML export with Nuxt
         run: npx nuxi generate docus
-        working-directory: ./docus
+        working-directory: docus
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
