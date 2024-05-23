@@ -86,7 +86,8 @@ jobs:
           pwd
           ls
       - name: Static HTML export with Nuxt
-        run: npx nuxi generate docus
+        run: npx nuxi generate
+        working-directory: docus
       - name: Show directory
         run: |
           pwd
