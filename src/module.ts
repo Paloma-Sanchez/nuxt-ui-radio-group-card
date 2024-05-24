@@ -13,6 +13,12 @@ export const components = [
   'RadioCardGroup'
 ]
 
+delete defaultColors.lightBlue
+delete defaultColors.warmGray
+delete defaultColors.trueGray
+delete defaultColors.coolGray
+delete defaultColors.blueGray
+
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   /**
@@ -143,7 +149,6 @@ export default defineNuxtModule<ModuleOptions>({
           require('@tailwindcss/typography'),
           require('@tailwindcss/container-queries'),
           require('@headlessui/tailwindcss'),
-          //iconsPlugin(Array.isArray(options.icons) || options.icons === 'all' ? { collections: getIconCollections(options.icons) } : typeof options.icons === 'object' ? options.icons as IconsPluginOptions : {})
         ],
         content: {
           files: [

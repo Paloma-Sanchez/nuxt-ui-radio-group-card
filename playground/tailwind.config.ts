@@ -28,8 +28,6 @@ export default <Partial<Config>>{
     }
   },
   safelist: [
-    'bg-red-500',
-    'bg-sky-500',
-    'bg-violet-500',
+
   ]
 }

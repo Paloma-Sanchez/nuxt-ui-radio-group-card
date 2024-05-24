@@ -1,3 +1,27 @@
 {
-  "extends": "./.nuxt/tsconfig.json"
+  "exclude": ["docs", "dist", "playground", "node_modules"],
+  "include": [
+    "src/**/*.{ts,vue}"
+
+  ],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "paths": {
+      "@/components/*": ["./components/*"],
+      "@/assets/*": ["./assets/*"],
+      "@/composables/*": ["./composables/*"],
+      "@/types/*": ["./types/*"]
+    }
+  }
 }
